@@ -18,6 +18,9 @@
     "paths": {
       "@hcl-ers/user-registration": [
         "libs/user-registration/src/index.ts"
+      ],
+      "@hcl-ers/material": [
+        "libs/material/src/index.ts"
       ]
     }
   },

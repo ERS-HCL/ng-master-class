@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material';
+import { MaterialModule } from '@hcl-ers/material';
 
 @NgModule({
   declarations: [AppComponent],

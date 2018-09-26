@@ -16,6 +16,9 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "@hcl-ers/user-registration": [
+        "libs/user-registration/src/index.ts"
+      ]
     }
   },
   "exclude": [

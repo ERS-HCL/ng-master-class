@@ -19,6 +19,9 @@
     },
     "material": {
       "tags": []
+    },
+    "core-ui": {
+      "tags": []
     }
   }
 }

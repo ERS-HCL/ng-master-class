@@ -5,14 +5,14 @@ import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@hcl-ers/material';
+import { CoreUiModule } from '@hcl-ers/core-ui';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    CoreUiModule,
     NxModule.forRoot(),
     RouterModule.forRoot(
       [

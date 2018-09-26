@@ -21,6 +21,9 @@
       ],
       "@hcl-ers/material": [
         "libs/material/src/index.ts"
+      ],
+      "@hcl-ers/core-ui": [
+        "libs/core-ui/src/index.ts"
       ]
     }
   },

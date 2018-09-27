@@ -19,7 +19,7 @@ export class AppLoadError implements Action {
 
 export class AppLoaded implements Action {
   readonly type = AppActionTypes.AppLoaded;
-  constructor(public payload: Entity[]) {}
+  constructor(public payload: Breeds) {}
 }
 
 export type AppAction = LoadApp | AppLoaded | AppLoadError;

@@ -1,4 +1,5 @@
 import { AppAction, AppActionTypes } from './app.actions';
+import { Breeds } from '@hcl-ers/data-services';
 
 /**
  * Interface for the 'App' data used in
@@ -12,14 +13,16 @@ import { AppAction, AppActionTypes } from './app.actions';
 export interface Entity {}
 
 export interface AppState {
-  list: Entity[]; // list of App; analogous to a sql normalized table
-  selectedId?: string | number; // which App record has been selected
+  // list: Entity[]; // list of App; analogous to a sql normalized table
+  breeds: Breeds;
+  selectedId?: string; // which App record has been selected
   loaded: boolean; // has the App list been loaded
   error?: any; // last none error (if any)
 }
 
 export const initialState: AppState = {
-  list: [],
+  //  list: [],
+  breeds: undefined,
   loaded: false
 };
 
@@ -31,7 +34,7 @@ export function appReducer(
     case AppActionTypes.AppLoaded: {
       state = {
         ...state,
-        list: action.payload,
+        breeds: action.payload,
         loaded: true
       };
       break;

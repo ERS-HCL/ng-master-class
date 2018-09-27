@@ -12,6 +12,7 @@ import { hot } from '@nrwl/nx/testing';
 
 import { AppEffects } from './app.effects';
 import { LoadApp, AppLoaded } from './app.actions';
+import { Breeds } from '@hcl-ers/data-services';
 
 describe('AppEffects', () => {
   let actions: Observable<any>;
@@ -37,8 +38,10 @@ describe('AppEffects', () => {
   describe('loadApp$', () => {
     it('should work', () => {
       actions = hot('-a-|', { a: new LoadApp() });
+      const breeds: Breeds = undefined;
       expect(effects.loadApp$).toBeObservable(
-        hot('-a-|', { a: new AppLoaded([]) })
+        
+        hot('-a-|', { a: new AppLoaded(breeds) })
       );
     });
   });

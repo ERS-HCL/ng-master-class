@@ -1,27 +1,31 @@
 import { AppLoaded } from './app.actions';
 import { AppState, Entity, initialState, appReducer } from './app.reducer';
+import { Breeds } from '@hcl-ers/data-services';
 
 describe('App Reducer', () => {
   const getAppId = it => it['id'];
   let createApp;
 
   beforeEach(() => {
-    createApp = (id: string, name = ''): Entity => ({
-      id,
-      name: name || `name-${id}`
-    });
+    createApp = (dogList: string[]): Breeds => {
+      const temp: Map<string, any[]> = new Map<string, any[]>();
+      dogList.map(dog => {
+        temp.set(dog, []);
+      });
+      return { breeds: temp };
+    };
   });
 
   describe('valid App actions ', () => {
     it('should return set the list of known App', () => {
-      const apps = [createApp('PRODUCT-AAA'), createApp('PRODUCT-zzz')];
+      const apps = createApp(['PRODUCT-AAA', 'PRODUCT-zzz']);
       const action = new AppLoaded(apps);
       const result: AppState = appReducer(initialState, action);
-      const selId: string = getAppId(result.list[1]);
+      //  const selId: string = getAppId(result);
 
       expect(result.loaded).toBe(true);
-      expect(result.list.length).toBe(2);
-      expect(selId).toBe('PRODUCT-zzz');
+      // expect(result.breeds).isNot()
+      // expect(selId).toBe('PRODUCT-zzz');
     });
   });
 

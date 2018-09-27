@@ -23,7 +23,8 @@ export class AppEffects {
 
       this._dogService.getBreeds().subscribe((res: any) => {
         console.log(res.message);
-        subject.next(new AppLoaded([]));
+        const breeds: Breeds = res.message;
+        subject.next(new AppLoaded(breeds));
         subject.complete();
       });
       return subject;

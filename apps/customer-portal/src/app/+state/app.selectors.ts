@@ -14,15 +14,17 @@ const getAllApp = createSelector(
   getAppState,
   getLoaded,
   (state: AppState, isLoaded) => {
-    return isLoaded ? state.list : [];
+    return isLoaded ? state.breeds : undefined;
   }
 );
+
 const getSelectedId = createSelector(
   getAppState,
   (state: AppState) => state.selectedId
 );
+
 const getSelectedApp = createSelector(getAllApp, getSelectedId, (app, id) => {
-  const result = app.find(it => it['id'] === id);
+  const result = app.breeds ? app.breeds.get(id) : undefined; //.find(it => it['id'] === id);
   return result ? Object.assign({}, result) : undefined;
 });
 

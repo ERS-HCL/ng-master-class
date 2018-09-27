@@ -13,7 +13,7 @@ export const router: Routes = [
   },
   {
     path: 'invoice',
-    loadChildren: '@hcl-ers/core-ui#CoreUiModule'
+    loadChildren: '@hcl-ers/core-ui#CheckOutModule'
   }
 ];
 

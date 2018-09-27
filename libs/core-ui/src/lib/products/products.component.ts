@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Tile {
   color: string;
@@ -20,7 +21,11 @@ export class ProductsComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 2, color: '#DDBDF1' }
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  public onBuy() {
+    this.router.navigate(['user-registration']);
+  }
 }

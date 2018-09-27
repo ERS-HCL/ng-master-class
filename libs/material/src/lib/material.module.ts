@@ -6,6 +6,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
@@ -16,7 +19,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatMenuModule,
     MatGridListModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatTableModule
   ],
   exports: [
     MatButtonModule,
@@ -26,7 +32,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatMenuModule,
     MatGridListModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatTableModule
   ]
 })
 export class MaterialModule {}

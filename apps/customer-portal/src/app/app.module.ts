@@ -14,6 +14,7 @@ import { routes } from './app.router';
     BrowserModule,
     BrowserAnimationsModule,
     CoreUiModule,
+    RouterModule,
     NxModule.forRoot(),
     routes
   ],

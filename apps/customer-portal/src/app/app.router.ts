@@ -10,6 +10,10 @@ export const router: Routes = [
   {
     path: 'user-registration',
     loadChildren: '@hcl-ers/user-registration#UserRegistrationModule'
+  },
+  {
+    path: 'invoice',
+    loadChildren: '@hcl-ers/core-ui#CoreUiModule'
   }
 ];
 

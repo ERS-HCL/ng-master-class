@@ -22,6 +22,9 @@
     },
     "core-ui": {
       "tags": []
+    },
+    "data-services": {
+      "tags": ["backend"]
     }
   }
 }

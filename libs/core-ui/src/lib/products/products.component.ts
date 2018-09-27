@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DogService } from '@hcl-ers/data-services';
 
 export interface Tile {
   color: string;
@@ -21,9 +22,13 @@ export class ProductsComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 2, color: '#DDBDF1' }
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private _dogService: DogService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._dogService
+      .getBreeds()
+      .subscribe(res => console.log(res), error => console.log(error));
+  }
 
   public onBuy() {
     this.router.navigate(['user-registration']);

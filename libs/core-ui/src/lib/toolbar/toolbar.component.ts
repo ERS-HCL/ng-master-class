@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'hcl-ers-toolbar',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  public onAbout() {
+    this.router.navigate(['about']);
+  }
+
+  public onProducts() {
+    this.router.navigate(['products']);
+  }
 }

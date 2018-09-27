@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { Entity } from './app.reducer';
+import { Breeds } from '@hcl-ers/data-services';
 
 export enum AppActionTypes {
   LoadApp = '[App] Load App',

@@ -9,6 +9,8 @@ import {
   AppLoadError,
   AppActionTypes
 } from './app.actions';
+import { DogService, Breeds } from '@hcl-ers/data-services';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class AppEffects {
@@ -16,7 +18,15 @@ export class AppEffects {
   loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {
     run: (action: LoadApp, state: AppState) => {
       // Your custom REST 'load' logic goes here. For now just return an empty list...
-      return new AppLoaded([]);
+
+      const subject = new Subject<AppLoaded>();
+
+      this._dogService.getBreeds().subscribe((res: any) => {
+        console.log(res.message);
+        subject.next(new AppLoaded([]));
+        subject.complete();
+      });
+      return subject;
     },
 
     onError: (action: LoadApp, error) => {
@@ -27,6 +37,7 @@ export class AppEffects {
 
   constructor(
     private actions$: Actions,
-    private dataPersistence: DataPersistence<AppState>
+    private dataPersistence: DataPersistence<AppState>,
+    private _dogService: DogService
   ) {}
 }

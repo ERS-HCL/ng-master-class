@@ -10,8 +10,13 @@ import { CoreUiModule } from '@hcl-ers/core-ui';
 import { routes } from './app.router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { initialState as appInitialState, appReducer } from './+state/app.reducer';
+import {
+  initialState as appInitialState,
+  appReducer
+} from './+state/app.reducer';
 import { AppEffects } from './+state/app.effects';
+
+import { DataServicesModule, DogService } from '@hcl-ers/data-services';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -24,20 +29,21 @@ import { storeFreeze } from 'ngrx-store-freeze';
     BrowserAnimationsModule,
     CoreUiModule,
     RouterModule,
+    DataServicesModule,
     NxModule.forRoot(),
     routes,
     StoreModule.forRoot(
-  { app: appReducer },
-  {
-    initialState : { app : appInitialState },
-    metaReducers : !environment.production ? [storeFreeze] : []
-  }
-),
+      { app: appReducer },
+      {
+        initialState: { app: appInitialState },
+        metaReducers: !environment.production ? [storeFreeze] : []
+      }
+    ),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
   ],
-  providers: [],
+  providers: [DogService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

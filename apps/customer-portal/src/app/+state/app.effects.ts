@@ -10,7 +10,7 @@ import {
   AppActionTypes
 } from './app.actions';
 import { DogService, Breeds } from '@hcl-ers/data-services';
-import { Subject } from 'rxjs';
+import { Subject, AsyncSubject, BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class AppEffects {
@@ -19,8 +19,8 @@ export class AppEffects {
     run: (action: LoadApp, state: AppState) => {
       // Your custom REST 'load' logic goes here. For now just return an empty list...
 
-      const subject = new Subject<AppLoaded>();
-
+      const subject = new AsyncSubject<AppLoaded>();
+      console.log('Load app called');
       this._dogService.getBreeds().subscribe((res: any) => {
         console.log(res.message);
         const breeds: Breeds = res.message;

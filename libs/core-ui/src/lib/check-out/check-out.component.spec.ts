@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MaterialModule } from '@hcl-ers/material';
 import { CheckOutComponent } from './check-out.component';
+import { DataServicesModule, DogService } from '@hcl-ers/data-services';
+
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('CheckOutComponent', () => {
   let component: CheckOutComponent;
@@ -8,9 +11,10 @@ describe('CheckOutComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckOutComponent ]
-    })
-    .compileComponents();
+      imports: [MaterialModule, DataServicesModule, RouterTestingModule],
+      declarations: [CheckOutComponent],
+      providers: [DogService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

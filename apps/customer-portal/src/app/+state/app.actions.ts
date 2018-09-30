@@ -19,7 +19,10 @@ export class AppLoadError implements Action {
 
 export class AppLoaded implements Action {
   readonly type = AppActionTypes.AppLoaded;
-  constructor(public payload: Breeds) {}
+  constructor(public payload: Breeds) {
+    //  console.log(payload.breeds);
+    console.log('App loaded called ! with payload:' + payload.breeds);
+  }
 }
 
 export type AppAction = LoadApp | AppLoaded | AppLoadError;

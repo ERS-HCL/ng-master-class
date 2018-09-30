@@ -8,7 +8,8 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { DataServicesModule, DogService } from '@hcl-ers/data-services';
 import { NxModule } from '@nrwl/nx';
 import { DataPersistence } from '@nrwl/nx';
-import { hot, cold } from '@nrwl/nx/testing';
+// import { hot, cold } from '@nrwl/nx/testing';
+import { hot, cold } from 'jasmine-marbles';
 import * as data from '../data/breeds.json';
 import { AppEffects } from './app.effects';
 import { LoadApp, AppLoaded } from './app.actions';
@@ -39,11 +40,11 @@ describe('AppEffects', () => {
 
   describe('loadApp$', () => {
     it('should work', () => {
-      //   actions = hot('--a-|', { a: new LoadApp() });
-      actions = hot('-a-|', { a: new LoadApp() });
-      const breeds: Breeds = (<any>data).message;
-      const expectedOutput: AppLoaded = new AppLoaded(breeds);
-      expect(effects.loadApp$).toBeObservable(hot('b|', { b: expectedOutput }));
+      actions = hot('a', { a: new LoadApp() });
+      //  actions = hot('--a-', { a: new LoadApp() });
+      const breeds: any = (<any>data).message;
+      const expectedOutput: AppLoaded = new AppLoaded({ breeds: breeds });
+      expect(effects.loadApp$).toBeObservable(cold('b', { b: expectedOutput }));
     });
   });
 });

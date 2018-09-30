@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/nx';
-
+import { Action } from '@ngrx/store';
 import { AppState } from './app.reducer';
 import {
   LoadApp,
@@ -10,35 +10,44 @@ import {
   AppActionTypes
 } from './app.actions';
 import { DogService, Breeds } from '@hcl-ers/data-services';
-import { Subject, AsyncSubject, BehaviorSubject } from 'rxjs';
+import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
+import { catchError, map, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class AppEffects {
-  @Effect()
-  loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {
-    run: (action: LoadApp, state: AppState) => {
-      // Your custom REST 'load' logic goes here. For now just return an empty list...
-
-      const subject = new AsyncSubject<AppLoaded>();
-      console.log('Load app called');
-      this._dogService.getBreeds().subscribe((res: any) => {
-        console.log(res.message);
-        const breeds: Breeds = res.message;
-        subject.next(new AppLoaded(breeds));
-        subject.complete();
-      });
-      return subject;
-    },
-
-    onError: (action: LoadApp, error) => {
-      console.error('Error', error);
-      return new AppLoadError(error);
-    }
-  });
-
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<AppState>,
     private _dogService: DogService
   ) {}
+
+  @Effect()
+  loadApp$: Observable<Action> = this.actions$.pipe(
+    ofType(AppActionTypes.LoadApp),
+    mergeMap(() =>
+      this._dogService
+        .getBreeds()
+        .pipe(
+          map(
+            (res: any) => new AppLoaded({ breeds: res.message }),
+            catchError(error => of(new AppLoadError(error)))
+          )
+        )
+    )
+  );
+
+  /*   @Effect()
+  loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {
+    run: (action: LoadApp, state: AppState) => {
+      return this._dogService.getBreeds().pipe(
+        map((res: any) => {
+          return new AppLoaded({ breeds: res.message });
+        })
+      );
+    },
+    onError: (action: LoadApp, error) => {
+      console.error('Error', error);
+      return new AppLoadError(error);
+    }
+  }); */
 }

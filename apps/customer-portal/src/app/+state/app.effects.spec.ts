@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject, ReplaySubject } from 'rxjs';
 
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -16,7 +16,7 @@ import { LoadApp, AppLoaded } from './app.actions';
 import { Breeds } from '@hcl-ers/data-services';
 
 describe('AppEffects', () => {
-  let actions: Observable<any>;
+  let actions: Subject<any>;
   let effects: AppEffects;
 
   beforeEach(() => {
@@ -40,11 +40,17 @@ describe('AppEffects', () => {
 
   describe('loadApp$', () => {
     it('should work', () => {
-      actions = hot('a', { a: new LoadApp() });
+      const loadAppAction = new LoadApp();
+      actions = new ReplaySubject(1);
+      actions.next(loadAppAction);
+      // actions = hot('a', { a: loadAppAction });
       //  actions = hot('--a-', { a: new LoadApp() });
       const breeds: any = (<any>data).message;
       const expectedOutput: AppLoaded = new AppLoaded({ breeds: breeds });
-      expect(effects.loadApp$).toBeObservable(cold('b', { b: expectedOutput }));
+      effects.loadApp$.subscribe(result => {
+        expect(result).toEqual(expectedOutput);
+      });
+      //   expect(effects.loadApp$).toBeObservable(cold('b', { b: expectedOutput }));
     });
   });
 });

@@ -183,7 +183,8 @@
           "options": {
             "main": "libs/core-ui/src/test.ts",
             "tsConfig": "libs/core-ui/tsconfig.spec.json",
-            "karmaConfig": "libs/core-ui/karma.conf.js"
+            "karmaConfig": "libs/core-ui/karma.conf.js",
+            "assets": ["libs/core-ui/src/assets"]
           }
         },
         "lint": {

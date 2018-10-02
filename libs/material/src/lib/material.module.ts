@@ -1,4 +1,5 @@
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,6 +11,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 @NgModule({
   imports: [
@@ -24,7 +28,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatInputModule,
     MatStepperModule,
     MatTableModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     MatButtonModule,
@@ -38,7 +44,9 @@ import { MatChipsModule } from '@angular/material/chips';
     MatInputModule,
     MatStepperModule,
     MatTableModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule {}

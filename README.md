@@ -8,6 +8,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Nx is an open source toolkit for enterprise Angular applications.
 
+```
+ng g app customer-portal --routing - Creating App
+ng generate lib core-ui --publishable
+ng g lib core-ui --routing --parent-module=apps/customer-portal/src/app/app.module.ts
+ng g lib core-ui --routing --lazy --parent-module=apps/customer-portal/src/app/app.module.ts
+ng generate component login --project=core-ui -m --export
+```
+
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
 
 ## Quick Start & Documentation

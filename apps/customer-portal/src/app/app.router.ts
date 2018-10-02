@@ -1,12 +1,13 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, ProductsComponent } from '@hcl-ers/core-ui';
+import { AboutComponent, ProductsComponent, LoginComponent } from '@hcl-ers/core-ui';
 
 export const router: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'user-registration',
     loadChildren: '@hcl-ers/user-registration#UserRegistrationModule'

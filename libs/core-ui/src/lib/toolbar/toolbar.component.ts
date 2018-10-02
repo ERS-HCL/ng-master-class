@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
+export interface NavElement {
+  label: string;
+  route: string;
+}
+
 @Component({
   selector: 'hcl-ers-toolbar',
   templateUrl: './toolbar.component.html',

@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
 export class LoginModel {
   constructor(public username: string = '', public password: string = '') {}
@@ -15,19 +14,11 @@ export class LoginComponent implements OnInit {
   hide = true;
   @Output() OnLogin = new EventEmitter();
 
-  constructor(private router: Router) {}
+  constructor() {}
 
   ngOnInit() {}
 
   login(): void {
     this.OnLogin.emit(this.loginModel);
-    /*  if (
-      this.loginModel.username === 'admin' &&
-      this.loginModel.password === 'admin'
-    ) {
-      this.router.navigate(['/']);
-    } else {
-      alert('Invalid credentials');
-    } */
   }
 }

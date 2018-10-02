@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface Tile {
@@ -21,12 +21,12 @@ export class ProductsComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 2, color: '#DDBDF1' }
   ];
 
-  constructor(private router: Router) {}
+  @Output() OnBuy = new EventEmitter();
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   public onBuy() {
-    this.router.navigate(['user-registration']);
+    this.OnBuy.emit(100);
   }
 }

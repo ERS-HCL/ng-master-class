@@ -18,4 +18,8 @@ export class ToolbarComponent implements OnInit {
   public onProducts() {
     this.router.navigate(['products']);
   }
+
+  public onLogin() {
+    this.router.navigate(['login']);
+  }
 }

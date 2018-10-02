@@ -6,21 +6,31 @@ import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { DataServicesModule, DogService } from '@hcl-ers/data-services';
 import { LoginComponent, LoginModel } from './login/login.component';
+import { CheckOutComponent } from './check-out/check-out.component';
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, MaterialModule, DataServicesModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    MaterialModule,
+    DataServicesModule
+  ],
   declarations: [
     ToolbarComponent,
     AboutComponent,
     ProductsComponent,
-    LoginComponent
+    LoginComponent,
+    CheckOutComponent
   ],
   exports: [
     ToolbarComponent,
     AboutComponent,
     ProductsComponent,
-    LoginComponent
+    LoginComponent,
+    CheckOutComponent
   ],
   providers: [DogService]
 })

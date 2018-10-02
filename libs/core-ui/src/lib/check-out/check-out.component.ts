@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface PeriodicElement {
@@ -29,12 +29,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class CheckOutComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
-
-  constructor(private router: Router) {}
+  @Output() OnPurchase = new EventEmitter();
+  constructor() {}
 
   ngOnInit() {}
 
   public onPurchase() {
-    this.router.navigate(['/']);
+    this.OnPurchase.emit(100);
   }
 }

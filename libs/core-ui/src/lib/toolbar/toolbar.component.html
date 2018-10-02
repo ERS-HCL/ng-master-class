@@ -1,12 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Third Line</span>
+    <span>{{navTitle}}</span>
     <span class="example-spacer"></span>
     <mat-icon class="example-icon" [matMenuTriggerFor]="menu">menu</mat-icon>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onAbout()">About</button>
-      <button mat-menu-item (click)="onProducts()">Products</button>
-      <button mat-menu-item (click)="onLogin()">Login</button>
+      <button mat-menu-item routerLink={{element.route}} *ngFor="let element of elements">{{element.label}}</button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

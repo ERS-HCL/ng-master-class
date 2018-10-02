@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppLoginComponent } from './app-login/app-login.component';
+import { CheckOutPageComponent } from './check-out-page/check-out-page.component';
 import { AboutComponent } from '@hcl-ers/core-ui';
 import { ProductsPageComponent } from './products-page/products-page.component';
 
@@ -14,8 +15,8 @@ export const router: Routes = [
     loadChildren: '@hcl-ers/user-registration#UserRegistrationModule'
   },
   {
-    path: 'invoice',
-    loadChildren: '@hcl-ers/core-ui#CheckOutModule'
+    path: 'check-out',
+    component: CheckOutPageComponent
   }
 ];
 

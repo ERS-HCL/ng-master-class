@@ -24,6 +24,6 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   public onCheckOut() {
-    this.router.navigate(['invoice/check-out']);
+    this.router.navigate(['check-out']);
   }
 }

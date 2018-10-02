@@ -23,9 +23,11 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { AppLoginComponent } from './app-login/app-login.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { CheckOutPageComponent } from './check-out-page/check-out-page.component';
 
 @NgModule({
-  declarations: [AppComponent, AppLoginComponent, ProductsPageComponent],
+  declarations: [AppComponent, AppLoginComponent, ProductsPageComponent, NavigationComponent, CheckOutPageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

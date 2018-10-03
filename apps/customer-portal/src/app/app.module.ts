@@ -25,9 +25,16 @@ import { AppLoginComponent } from './app-login/app-login.component';
 import { ProductsPageComponent } from './products-page/products-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CheckOutPageComponent } from './check-out-page/check-out-page.component';
+import { AuthenticationService } from './_services/authentication-service';
 
 @NgModule({
-  declarations: [AppComponent, AppLoginComponent, ProductsPageComponent, NavigationComponent, CheckOutPageComponent],
+  declarations: [
+    AppComponent,
+    AppLoginComponent,
+    ProductsPageComponent,
+    NavigationComponent,
+    CheckOutPageComponent
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -47,7 +54,7 @@ import { CheckOutPageComponent } from './check-out-page/check-out-page.component
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
   ],
-  providers: [DogService],
+  providers: [DogService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

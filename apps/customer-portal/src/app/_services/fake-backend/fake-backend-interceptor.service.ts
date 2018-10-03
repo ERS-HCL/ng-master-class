@@ -9,6 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { User } from '../../_models';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,15 @@ export class FakeBackendInterceptorService {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     // array in local storage for registered users
-    const users: any[] = JSON.parse(localStorage.getItem('users')) || [];
+    const users: User[] = JSON.parse(localStorage.getItem('users')) || [
+      {
+        firstName: 'Admin',
+        lastName: 'Admin',
+        id: 1,
+        password: 'admin',
+        username: 'admin'
+      }
+    ];
 
     // wrap in delayed observable to simulate server api call
     return (

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppLoginComponent implements OnInit {
   loginModel: LoginModel;
+  loading = false;
   constructor(private router: Router) {}
 
   ngOnInit() {}

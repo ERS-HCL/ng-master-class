@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 export class LoginModel {
   constructor(public username: string = '', public password: string = '') {}
@@ -10,8 +10,12 @@ export class LoginModel {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  color = 'primary';
+  diameter = 30;
+  value = 50;
   loginModel: LoginModel = new LoginModel();
   hide = true;
+  @Input() loading = false;
   @Output() OnLogin = new EventEmitter();
 
   constructor() {}

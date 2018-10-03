@@ -9,6 +9,7 @@ import { LoginComponent, LoginModel } from './login/login.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   imports: [
@@ -23,14 +24,16 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ProductsComponent,
     LoginComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    AlertComponent
   ],
   exports: [
     ToolbarComponent,
     AboutComponent,
     ProductsComponent,
     LoginComponent,
-    CheckOutComponent
+    CheckOutComponent,
+    AlertComponent
   ],
   providers: [DogService]
 })

@@ -11,6 +11,7 @@ Nx is an open source toolkit for enterprise Angular applications.
 ```
 ng g app customer-portal --routing - Creating App
 ng generate lib core-ui --publishable
+ng g service fake-backend-interceptor --project=data-services
 ng g lib core-ui --routing --parent-module=apps/customer-portal/src/app/app.module.ts
 ng g lib core-ui --routing --lazy --parent-module=apps/customer-portal/src/app/app.module.ts
 ng generate component login --project=core-ui -m --export

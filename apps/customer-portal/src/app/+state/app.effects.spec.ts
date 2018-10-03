@@ -10,7 +10,7 @@ import { NxModule } from '@nrwl/nx';
 import { DataPersistence } from '@nrwl/nx';
 // import { hot, cold } from '@nrwl/nx/testing';
 import { hot, cold } from 'jasmine-marbles';
-import * as data from '../data/breeds.json';
+import * as data from '../_data/breeds.json';
 import { AppEffects } from './app.effects';
 import { LoadApp, AppLoaded } from './app.actions';
 import { Breeds } from '@hcl-ers/data-services';

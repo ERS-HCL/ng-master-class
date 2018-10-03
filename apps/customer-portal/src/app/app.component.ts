@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from './+state/app.reducer';
 import { Store } from '@ngrx/store';
 import { LoadApp } from './+state/app.actions';
+import { fadeAnimation } from './animations';
 
 @Component({
   selector: 'hcl-ers-root',
+  animations: [fadeAnimation], // register the animation
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

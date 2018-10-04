@@ -1,9 +1,20 @@
 .example-icon {
-    padding: 0 14px;
-    cursor: pointer;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-header-image {
+  background-image: url('../../assets/login-avatar.png');
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-item {
+  padding-left: 10px;
+}

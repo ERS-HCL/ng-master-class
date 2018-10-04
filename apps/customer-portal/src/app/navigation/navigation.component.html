@@ -1,1 +1,2 @@
-<hcl-ers-toolbar [nav-title]="navTitle" [nav-elements]="navElements"></hcl-ers-toolbar>
+<hcl-ers-toolbar [nav-title]="navTitle" [nav-elements]="navElements" [loggedIn]="isLoggedIn()" (OnLogin)="onLogin()"
+    (OnLogOut)="onLogOut()"></hcl-ers-toolbar>

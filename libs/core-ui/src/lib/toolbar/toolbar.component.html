@@ -1,10 +1,30 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>{{navTitle}}</span>
+    <button mat-button routerLink="/"><span>
+        <mat-icon>pets</mat-icon> {{navTitle}}
+      </span></button>
     <span class="example-spacer"></span>
+    <button mat-icon-button aria-label="Cart" class="menu-item">
+      <mat-icon matBadge="0" matBadgeColor="warn" matBadgeSize="medium">shopping_cart</mat-icon>
+    </button>
+    <div *ngIf="loggedIn; else loggedOut">
+      <button mat-icon-button aria-label="Avatar" [matMenuTriggerFor]="logOutMenu" class="menu-item">
+        <div mat-card-avatar class="example-header-image"></div>
+      </button>
+    </div>
+
+    <ng-template #loggedOut>
+      <button mat-icon-button aria-label="Log In" (click)="onLogin()" class="menu-item">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </ng-template>
+    <mat-menu #logOutMenu="matMenu">
+      <button mat-menu-item (click)="onLogOut()">Log Out</button>
+    </mat-menu>
+
     <mat-icon class="example-icon" [matMenuTriggerFor]="menu">menu</mat-icon>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink={{element.route}} *ngFor="let element of elements">{{element.label}}</button>
+      <button mat-menu-item routerLink={{element.route}} *ngFor="let element of elements" class="menu-item">{{element.label}}</button>
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>

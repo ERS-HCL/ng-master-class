@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface NavElement {
@@ -14,26 +14,25 @@ export interface NavElement {
 export class ToolbarComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('nav-title') navTitle = 'Pet Clinic';
-
+  @Input() loggedIn = false;
   // tslint:disable-next-line:no-input-rename
-  @Input('nav-elements') elements: Array<NavElement> = [
+  @Input('nav-elements')
+  elements: Array<NavElement> = [
     { label: 'About', route: 'about' },
     { label: 'Products', route: 'products' },
     { label: 'Login', route: 'login' }
   ];
+  @Output() OnLogin = new EventEmitter();
+  @Output() OnLogOut = new EventEmitter();
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  public onAbout() {
-    this.router.navigate(['about']);
+  onLogin() {
+    this.OnLogin.emit();
   }
 
-  public onProducts() {
-    this.router.navigate(['products']);
-  }
-
-  public onLogin() {
-    this.router.navigate(['login']);
+  onLogOut() {
+    this.OnLogOut.emit();
   }
 }

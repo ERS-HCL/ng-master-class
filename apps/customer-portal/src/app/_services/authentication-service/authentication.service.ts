@@ -9,6 +9,14 @@ import { environment } from '../../../environments/environment';
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  
   login(username: string, password: string) {
     return this.http
       .post<any>(`${environment.apiUrl}/users/authenticate`, {

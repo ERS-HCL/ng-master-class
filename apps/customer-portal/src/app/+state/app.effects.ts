@@ -9,7 +9,7 @@ import {
   AppLoadError,
   AppActionTypes
 } from './app.actions';
-import { DogService, Breeds } from '@hcl-ers/data-services';
+import { DogService } from '@hcl-ers/data-services';
 import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 
@@ -29,7 +29,7 @@ export class AppEffects {
         .getBreeds()
         .pipe(
           map(
-            (res: any) => new AppLoaded({ breeds: res.message }),
+            (res: any) => new AppLoaded(res.message),
             catchError(error => of(new AppLoadError(error)))
           )
         )

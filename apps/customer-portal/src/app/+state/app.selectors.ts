@@ -10,7 +10,7 @@ const getLoaded = createSelector(
 );
 const getError = createSelector(getAppState, (state: AppState) => state.error);
 
-const getAllApp = createSelector(
+const getBreeds = createSelector(
   getAppState,
   getLoaded,
   (state: AppState, isLoaded) => {
@@ -23,14 +23,14 @@ const getSelectedId = createSelector(
   (state: AppState) => state.selectedId
 );
 
-const getSelectedApp = createSelector(getAllApp, getSelectedId, (app, id) => {
-  const result = app.breeds ? app.breeds.get(id) : undefined; //.find(it => it['id'] === id);
+const getSelectedApp = createSelector(getBreeds, getSelectedId, (app, id) => {
+  const result = app ? app.get(id) : undefined; //.find(it => it['id'] === id);
   return result ? Object.assign({}, result) : undefined;
 });
 
 export const appQuery = {
   getLoaded,
   getError,
-  getAllApp,
+  getBreeds,
   getSelectedApp
 };

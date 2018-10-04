@@ -1,18 +1,17 @@
 import { AppLoaded } from './app.actions';
 import { AppState, Entity, initialState, appReducer } from './app.reducer';
-import { Breeds } from '@hcl-ers/data-services';
 
 describe('App Reducer', () => {
   const getAppId = it => it['id'];
   let createApp;
 
   beforeEach(() => {
-    createApp = (dogList: string[]): Breeds => {
+    createApp = (dogList: string[]): Map<string, any[]> => {
       const temp: Map<string, any[]> = new Map<string, any[]>();
       dogList.map(dog => {
         temp.set(dog, []);
       });
-      return { breeds: temp };
+      return  temp ;
     };
   });
 

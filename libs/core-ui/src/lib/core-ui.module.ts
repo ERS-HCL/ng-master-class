@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import { SelectorPanelComponent } from './selector-panel/selector-panel.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     LoginComponent,
     CheckOutComponent,
     AlertComponent,
-    SnackBarComponent
+    SnackBarComponent,
+    SelectorPanelComponent
   ],
   exports: [
     ToolbarComponent,
@@ -36,7 +38,8 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     LoginComponent,
     CheckOutComponent,
     AlertComponent,
-    SnackBarComponent
+    SnackBarComponent,    
+    SelectorPanelComponent
   ],
   providers: [DogService]
 })

@@ -1,0 +1,24 @@
+<div class="panel-container">
+  <mat-card class="panel-card">
+    <mat-card-header>
+      <mat-card-title>Breed Selection</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-select [(value)]="selected" (selectionChange)="onSelect($event.value)">
+          <mat-option>None</mat-option>
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <p>You selected: {{selected}}</p>
+    </mat-card-actions>
+
+
+  </mat-card>
+  {{breeds | json }}
+
+</div>

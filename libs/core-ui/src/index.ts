@@ -1,4 +1,5 @@
 export * from './lib/core-ui.module';
+export * from './lib/selector-panel/selector-panel.component';
 export * from './lib/check-out/check-out.component';
 export * from './lib/about/about.component';
 export * from './lib/products/products.component';

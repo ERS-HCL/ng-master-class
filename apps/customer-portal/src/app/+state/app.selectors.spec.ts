@@ -1,6 +1,5 @@
 import { Entity, AppState } from './app.reducer';
 import { appQuery } from './app.selectors';
-import { Breeds } from '@hcl-ers/data-services';
 
 describe('App Selectors', () => {
   const ERROR_MSG = 'No Error Available';
@@ -9,12 +8,12 @@ describe('App Selectors', () => {
   let storeState;
 
   beforeEach(() => {
-    const createApp = (dogList: string[]): Breeds => {
+    const createApp = (dogList: string[]): Map<string, any[]> => {
       const temp: Map<string, any[]> = new Map<string, any[]>();
       dogList.map(dog => {
         temp.set(dog, []);
       });
-      return { breeds: temp };
+      return temp;
     };
     const apps = createApp(['PRODUCT-AAA', 'PRODUCT-zzz']);
     storeState = {
@@ -29,8 +28,8 @@ describe('App Selectors', () => {
   });
 
   describe('App Selectors', () => {
-    it('getAllApp() should return the list of App', () => {
-      const results = appQuery.getAllApp(storeState);
+    it('getBreeds() should return the list of Breeds', () => {
+      const results = appQuery.getBreeds(storeState);
       /*       const selId = getAppId(results[1]);
 
       expect(results.length).toBe(3);

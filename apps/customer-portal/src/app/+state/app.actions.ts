@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { Entity } from './app.reducer';
-import { Breeds } from '@hcl-ers/data-services';
 
 export enum AppActionTypes {
   LoadApp = '[App] Load App',
@@ -19,9 +18,9 @@ export class AppLoadError implements Action {
 
 export class AppLoaded implements Action {
   readonly type = AppActionTypes.AppLoaded;
-  constructor(public payload: Breeds) {
+  constructor(public payload: Map<string, any[]>) {
     //  console.log(payload.breeds);
-    console.log('App loaded called ! with payload:' + payload.breeds);
+    console.log('App loaded called ! with payload:' + payload);
   }
 }
 

@@ -1,0 +1,16 @@
+.panel-container {
+  padding: 10px;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+}
+
+.panel-card {
+  flex: 1
+}

@@ -13,7 +13,6 @@ import { hot, cold } from 'jasmine-marbles';
 import * as data from '../_data/breeds.json';
 import { AppEffects } from './app.effects';
 import { LoadApp, AppLoaded } from './app.actions';
-import { Breeds } from '@hcl-ers/data-services';
 
 describe('AppEffects', () => {
   let actions: Subject<any>;
@@ -46,7 +45,7 @@ describe('AppEffects', () => {
       // actions = hot('a', { a: loadAppAction });
       //  actions = hot('--a-', { a: new LoadApp() });
       const breeds: any = (<any>data).message;
-      const expectedOutput: AppLoaded = new AppLoaded({ breeds: breeds });
+      const expectedOutput: AppLoaded = new AppLoaded(breeds);
       effects.loadApp$.subscribe(result => {
         expect(result).toEqual(expectedOutput);
       });

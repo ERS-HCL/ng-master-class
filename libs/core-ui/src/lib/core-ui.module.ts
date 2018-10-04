@@ -10,6 +10,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { AlertComponent } from './alert/alert.component';
     ProductsComponent,
     LoginComponent,
     CheckOutComponent,
-    AlertComponent
+    AlertComponent,
+    SnackBarComponent
   ],
   exports: [
     ToolbarComponent,
@@ -33,7 +35,8 @@ import { AlertComponent } from './alert/alert.component';
     ProductsComponent,
     LoginComponent,
     CheckOutComponent,
-    AlertComponent
+    AlertComponent,
+    SnackBarComponent
   ],
   providers: [DogService]
 })

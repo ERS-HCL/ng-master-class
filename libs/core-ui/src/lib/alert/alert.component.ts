@@ -5,7 +5,7 @@ import { AlertService } from '../_services';
 @Component({
   selector: 'hcl-ers-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css']
+  styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit, OnDestroy {
   private subscription: Subscription;

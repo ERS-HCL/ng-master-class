@@ -5,4 +5,4 @@ export * from './lib/products/products.component';
 export * from './lib/toolbar/toolbar.component';
 export * from './lib/login/login.component';
 export * from './lib/scroll-top.service';
-export * from './lib/_services/alert.service';
+export * from './lib/_services';

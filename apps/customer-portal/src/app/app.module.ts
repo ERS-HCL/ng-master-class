@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreUiModule } from '@hcl-ers/core-ui';
+import { CoreUiModule, AlertService } from '@hcl-ers/core-ui';
 
 import { routes } from './app.router';
 import { StoreModule } from '@ngrx/store';
@@ -26,6 +26,19 @@ import { ProductsPageComponent } from './products-page/products-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CheckOutPageComponent } from './check-out-page/check-out-page.component';
 import { AuthenticationService } from './_services/authentication-service';
+import { UserService } from './_services/user-service';
+import { AuthGuard } from './_guards/auth.guard';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptorService } from './_services/jwt-interceptor';
+import { ErrorInterceptorService } from './_services/error-interceptor';
+import { FakeBackendInterceptorService } from './_services/fake-backend';
+
+const fakeBackendProvider = {
+  // use fake backend in place of Http service for backend-less development
+  provide: HTTP_INTERCEPTORS,
+  useClass: FakeBackendInterceptorService,
+  multi: true
+};
 
 @NgModule({
   declarations: [
@@ -54,7 +67,26 @@ import { AuthenticationService } from './_services/authentication-service';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
   ],
-  providers: [DogService, AuthenticationService],
+  providers: [
+    DogService,
+    AuthenticationService,
+    UserService,
+    AlertService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptorService,
+      multi: true
+    },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

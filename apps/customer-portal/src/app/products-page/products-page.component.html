@@ -1,2 +1,3 @@
-<hcl-ers-selector-panel [breeds]="breeds| async"></hcl-ers-selector-panel>
+<hcl-ers-selector-panel [breeds]="breeds| async" (breedSelected)="onBreedSelection($event)" (hasSubBreed)="hasSubBreed($event)"
+    (subBreedSelected)="onSubBreedSelection($event)" [breedImages]="breedImages | async"></hcl-ers-selector-panel>
 <hcl-ers-products (OnBuy)="onBuy($event)"></hcl-ers-products>

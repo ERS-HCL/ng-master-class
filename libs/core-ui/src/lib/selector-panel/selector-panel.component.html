@@ -1,15 +1,19 @@
 <div class="panel-container">
   <mat-card class="panel-card">
     <mat-card-header>
-      <mat-card-title>Breed Selection</mat-card-title>
+      <div mat-card-avatar class="dog-header-image"></div>
+      <mat-card-title>Pet Filter</mat-card-title>
+      <mat-card-subtitle>Breed Selection</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field placeholder="Breed">
+      <mat-form-field placeholder="Breed" class="form-field">
+        <mat-label>Main Breed</mat-label>
         <mat-select [(value)]="selected" (selectionChange)="onSelect($event.value)">
           <mat-option *ngFor="let breed of mainBreeds" value={{breed}}>{{breed | uppercase }}</mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field *ngIf="hasSubCategories()" placeholder="Sub Breed">
+      <mat-form-field *ngIf="hasSubCategories()" placeholder="Sub Breed" class="form-field">
+        <mat-label>Sub Breed</mat-label>
         <mat-select [(value)]="selectedSub" (selectionChange)="onSelectSub($event.value)">
           <mat-option *ngFor="let subBreed of subBreeds[0]" value={{subBreed}}>{{subBreed | uppercase}}</mat-option>
         </mat-select>
@@ -22,5 +26,5 @@
 
   </mat-card>
 
-
+  {{breedImages | json}}
 </div>

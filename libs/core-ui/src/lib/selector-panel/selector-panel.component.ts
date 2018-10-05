@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'hcl-ers-selector-panel',
@@ -12,12 +12,13 @@ export class SelectorPanelComponent implements OnInit {
   mainBreeds: string[] = new Array<string>();
   subBreeds: any[] = new Array<any>();
   subBreedsMap: Map<string, string[]> = new Map<string, string[]>();
-  // @Input() breeds: Map<string, any[]>;;
-
+  @Output() breedSelected = new EventEmitter();
+  @Output() hasSubBreed = new EventEmitter();
+  @Output() subBreedSelected = new EventEmitter();
+  @Input() breedImages: string[];
   @Input()
   set breeds(data: Map<string, any[]>) {
     if (data) {
-      // console.log(data);
       this.mybreeds = data;
       const self = this;
       Object.keys(data).forEach(function(key) {
@@ -30,15 +31,16 @@ export class SelectorPanelComponent implements OnInit {
           self.subBreedsMap.set(key, values);
         }
       });
-
-      //  this.mybreeds.values();
-      //   console.log(this.mybreeds.entries());
     }
+    // Select the first breed by default
+    // If there are sub breeds select the first for that as well
     if (this.mainBreeds[0]) {
       this.selected = this.mainBreeds[0];
+      this.breedSelected.emit(this.selected);
+      this.initSubBreeds();
     }
-    console.log(this.mainBreeds);
-    console.log(this.subBreedsMap);
+    //   console.log(this.mainBreeds);
+    //   console.log(this.subBreedsMap);
   }
 
   constructor() {}
@@ -47,16 +49,27 @@ export class SelectorPanelComponent implements OnInit {
 
   onSelect(value: any) {
     this.selected = value;
+    this.breedSelected.emit(this.selected);
     this.subBreeds = this.subBreedsMap.get(value);
-    if (this.hasSubCategories()) {
-      this.selectedSub = this.subBreeds[0][0];
-    }
-    console.log(this.subBreeds, this.subBreeds[0].length);
+    this.initSubBreeds();
+    //  console.log(this.subBreeds, this.subBreeds[0].length);
   }
 
   onSelectSub(value: any) {
     this.selectedSub = value;
-    console.log(value);
+    this.hasSubBreed.emit(true);
+    this.subBreedSelected.emit(this.selectedSub);
+  }
+
+  initSubBreeds() {
+    if (this.hasSubCategories()) {
+      this.selectedSub = this.subBreeds[0][0];
+      this.hasSubBreed.emit(true);
+      this.subBreedSelected.emit(this.selectedSub);
+    } else {
+      this.hasSubBreed.emit(false);
+      this.subBreedSelected.emit(undefined);
+    }
   }
 
   hasSubCategories() {

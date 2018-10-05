@@ -7,7 +7,9 @@ import {
   LoadApp,
   AppLoaded,
   AppLoadError,
-  AppActionTypes
+  AppActionTypes,
+  BreedImagesLoaded,
+  SubBreedImagesLoaded
 } from './app.actions';
 import { DogService } from '@hcl-ers/data-services';
 import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
@@ -32,20 +34,30 @@ export class AppEffects {
       )
     )
   );
-  //  );
 
-  /*   @Effect()
-  loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {
-    run: (action: LoadApp, state: AppState) => {
-      return this._dogService.getBreeds().pipe(
-        map((res: any) => {
-          return new AppLoaded({ breeds: res.message });
-        })
-      );
-    },
-    onError: (action: LoadApp, error) => {
-      console.error('Error', error);
-      return new AppLoadError(error);
-    }
-  }); */
+  @Effect()
+  loadBreedImages$: Observable<Action> = this.actions$.pipe(
+    ofType(AppActionTypes.LoadBreedImages),
+    mergeMap((action: any) =>
+      this._dogService.getBreedImagesByType(action.payload).pipe(
+        map((res: any) => res.message),
+        map((res: any[]) => res.slice(0, Math.min(res.length, 5))),
+        map((res: any[]) => new BreedImagesLoaded(res)),
+        catchError(error => of(new AppLoadError(error)))
+      )
+    )
+  );
+
+  @Effect()
+  loadSubBreedImages$: Observable<Action> = this.actions$.pipe(
+    ofType(AppActionTypes.LoadSubBreedImages),
+    mergeMap((action: any) =>
+      this._dogService.getSubBreedImagesByType(action.payload).pipe(
+        map((res: any) => res.message),
+        map((res: any[]) => res.slice(0, Math.min(res.length, 5))),
+        map((res: any[]) => new SubBreedImagesLoaded(res)),
+        catchError(error => of(new AppLoadError(error)))
+      )
+    )
+  );
 }

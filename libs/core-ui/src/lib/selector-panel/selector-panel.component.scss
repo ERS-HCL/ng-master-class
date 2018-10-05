@@ -12,5 +12,15 @@
 }
 
 .panel-card {
-  flex: 1
+  flex: 1;
+}
+
+.form-field {
+  padding: 10px;
+  margin: 0;
+}
+
+.dog-header-image {
+  background-image: url('../../assets/dog-avatar.png');
+  background-size: cover;
 }

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import { SelectorPanelComponent } from './selector-panel/selector-panel.component';
+import { BreedsPipe } from './selector-panel/breeds-transform.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { SelectorPanelComponent } from './selector-panel/selector-panel.componen
     CheckOutComponent,
     AlertComponent,
     SnackBarComponent,
-    SelectorPanelComponent
+    SelectorPanelComponent,
+    BreedsPipe
   ],
   exports: [
     ToolbarComponent,
@@ -38,8 +40,9 @@ import { SelectorPanelComponent } from './selector-panel/selector-panel.componen
     LoginComponent,
     CheckOutComponent,
     AlertComponent,
-    SnackBarComponent,    
-    SelectorPanelComponent
+    SnackBarComponent,
+    SelectorPanelComponent,
+    BreedsPipe
   ],
   providers: [DogService]
 })

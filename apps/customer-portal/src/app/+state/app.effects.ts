@@ -25,16 +25,14 @@ export class AppEffects {
   loadApp$: Observable<Action> = this.actions$.pipe(
     ofType(AppActionTypes.LoadApp),
     mergeMap(() =>
-      this._dogService
-        .getBreeds()
-        .pipe(
-          map(
-            (res: any) => new AppLoaded(res.message),
-            catchError(error => of(new AppLoadError(error)))
-          )
-        )
+      this._dogService.getBreeds().pipe(
+        map((res: any) => res.message),
+        map((res: any) => new AppLoaded(res)),
+        catchError(error => of(new AppLoadError(error)))
+      )
     )
   );
+  //  );
 
   /*   @Effect()
   loadApp$ = this.dataPersistence.fetch(AppActionTypes.LoadApp, {

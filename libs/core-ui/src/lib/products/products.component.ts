@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 export interface Tile {
@@ -21,6 +21,11 @@ export class ProductsComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 2, color: '#DDBDF1' }
   ];
 
+  @Input() breedImages: string[];
+  @Input() subBreedImages: string[];
+  @Input() breedImagesLoaded: boolean;
+  @Input() subBreedImagesLoaded: boolean;
+  @Input() hasSubBreed: boolean;
   @Output() OnBuy = new EventEmitter();
   constructor() {}
 

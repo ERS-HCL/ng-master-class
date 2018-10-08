@@ -12,8 +12,8 @@
 }
 
 .flex-me {
-  display: inline-flex;
-  flex-flow: row wrap;
+  display: flex;
+  flex-flow: column wrap;
   background: grey;
   padding: 5px 0;
   padding-bottom: 5px;

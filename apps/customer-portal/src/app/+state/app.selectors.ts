@@ -9,9 +9,19 @@ const getLoaded = createSelector(
   (state: AppState) => state.loaded
 );
 
+const getHasSubBreed = createSelector(
+  getAppState,
+  (state: AppState) => state.hasSubBreed
+);
+
 const getBreedImagesLoaded = createSelector(
   getAppState,
   (state: AppState) => state.breedImagesLoaded
+);
+
+const getSubBreedImagesLoaded = createSelector(
+  getAppState,
+  (state: AppState) => state.subBreedImagesLoaded
 );
 
 const getError = createSelector(getAppState, (state: AppState) => state.error);
@@ -21,6 +31,14 @@ const getBreeds = createSelector(
   getLoaded,
   (state: AppState, isLoaded) => {
     return isLoaded ? state.breeds : undefined;
+  }
+);
+
+const getSubBreedImages = createSelector(
+  getAppState,
+  getSubBreedImagesLoaded,
+  (state: AppState, isLoaded) => {
+    return isLoaded ? state.subBreedImages : undefined;
   }
 );
 
@@ -46,7 +64,10 @@ export const appQuery = {
   getLoaded,
   getError,
   getBreeds,
+  getHasSubBreed,
   getBreedImagesLoaded,
+  getSubBreedImagesLoaded,
+  getSubBreedImages,
   getBreedImages,
   getSelectedApp
 };

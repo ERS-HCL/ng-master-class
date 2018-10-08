@@ -19,6 +19,10 @@ import { BreedParams } from '@hcl-ers/data-services';
 export class ProductsPageComponent implements OnInit {
   breeds: Observable<Map<string, any[]>>;
   breedImages: Observable<string[]>;
+  subBreedImages: Observable<string[]>;
+  breedImagesLoaded: Observable<boolean>;
+  subBreedImagesLoaded: Observable<boolean>;
+  isSubBreed: Observable<boolean>;
   areSubBreedsAvailable = false;
   selectedBreed: string;
   selectedSubBreed: string;
@@ -28,6 +32,14 @@ export class ProductsPageComponent implements OnInit {
   ngOnInit() {
     this.breeds = this.store.pipe(select(appQuery.getBreeds));
     this.breedImages = this.store.pipe(select(appQuery.getBreedImages));
+    this.subBreedImages = this.store.pipe(select(appQuery.getSubBreedImages));
+    this.breedImagesLoaded = this.store.pipe(
+      select(appQuery.getBreedImagesLoaded)
+    );
+    this.subBreedImagesLoaded = this.store.pipe(
+      select(appQuery.getSubBreedImagesLoaded)
+    );
+    this.isSubBreed = this.store.pipe(select(appQuery.getHasSubBreed));
   }
 
   onBuy($event): void {

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Entity } from './app.reducer';
+import { Entity, LineItem } from './app.reducer';
 import { BreedParams } from '@hcl-ers/data-services';
 
 export enum AppActionTypes {
@@ -11,11 +11,39 @@ export enum AppActionTypes {
   LoadSubBreedImages = '[App] Load Sub Breed Images',
   SubBreedImagesLoaded = '[App] Sub Breed Images Loaded',
   SetSubBreedStatus = '[App] Set Sub Breed Status',
-  AppLoadError = '[App] App Load Error'
+  AppLoadError = '[App] App Load Error',
+  CreateCart = '[App] Create Cart',
+  AddCartItem = '[App] Add Cart Item',
+  UpdateCartItem = '[App] Update Cart Item',
+  DeleteCartItem = '[App] Update Cart Item',
+  ClearCart = '[App] Clear Cart'
 }
 
 export class LoadApp implements Action {
   readonly type = AppActionTypes.LoadApp;
+}
+
+export class CreateCart implements Action {
+  readonly type = AppActionTypes.CreateCart;
+}
+
+export class ClearCart implements Action {
+  readonly type = AppActionTypes.ClearCart;
+}
+
+export class DeleteCartItem implements Action {
+  readonly type = AppActionTypes.DeleteCartItem;
+  constructor(public payload: string) {}
+}
+
+export class UpdateCartItem implements Action {
+  readonly type = AppActionTypes.DeleteCartItem;
+  constructor(public payload: number) {}
+}
+
+export class AddCartItem implements Action {
+  readonly type = AppActionTypes.AddCartItem;
+  constructor(public payload: LineItem) {}
 }
 
 export class AppLoadError implements Action {
@@ -63,7 +91,12 @@ export type AppAction =
   | HasSubBreeds
   | BreedImagesLoaded
   | LoadSubBreedImages
-  | SubBreedImagesLoaded;
+  | SubBreedImagesLoaded
+  | CreateCart
+  | AddCartItem
+  | DeleteCartItem
+  | UpdateCartItem
+  | ClearCart;
 
 export const fromAppActions = {
   LoadApp,
@@ -73,5 +106,10 @@ export const fromAppActions = {
   LoadBreedImages,
   BreedImagesLoaded,
   LoadSubBreedImages,
-  SubBreedImagesLoaded
+  SubBreedImagesLoaded,
+  CreateCart,
+  AddCartItem,
+  DeleteCartItem,
+  UpdateCartItem,
+  ClearCart
 };

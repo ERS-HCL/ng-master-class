@@ -40,11 +40,6 @@ export class ProductsComponent implements OnInit {
       window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
   }
 
-  randomIntFromInterval(min,max) // min and max included
-{
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
   public onBuy() {
     this.OnBuy.emit(100);
   }

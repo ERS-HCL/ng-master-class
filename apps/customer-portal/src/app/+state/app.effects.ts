@@ -41,7 +41,7 @@ export class AppEffects {
     mergeMap((action: any) =>
       this._dogService.getBreedImagesByType(action.payload).pipe(
         map((res: any) => res.message),
-        map((res: any[]) => res.slice(0, Math.min(res.length, 5))),
+        map((res: any[]) => res.slice(0, Math.min(res.length, 4))),
         map((res: any[]) => new BreedImagesLoaded(res)),
         catchError(error => of(new AppLoadError(error)))
       )
@@ -54,7 +54,7 @@ export class AppEffects {
     mergeMap((action: any) =>
       this._dogService.getSubBreedImagesByType(action.payload).pipe(
         map((res: any) => res.message),
-        map((res: any[]) => res.slice(0, Math.min(res.length, 5))),
+        map((res: any[]) => res.slice(0, Math.min(res.length, 4))),
         map((res: any[]) => new SubBreedImagesLoaded(res)),
         catchError(error => of(new AppLoadError(error)))
       )

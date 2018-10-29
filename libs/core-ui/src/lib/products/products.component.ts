@@ -14,6 +14,7 @@ export interface Tile {
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  breakpoint: number;
   tiles: Tile[] = [
     { text: 'One', cols: 4, rows: 1, color: 'lightblue' },
     { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
@@ -29,7 +30,20 @@ export class ProductsComponent implements OnInit {
   @Output() OnBuy = new EventEmitter();
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.breakpoint =
+      window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
+  }
+
+  onResize(event) {
+    this.breakpoint =
+      window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
+  }
+
+  randomIntFromInterval(min,max) // min and max included
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
 
   public onBuy() {
     this.OnBuy.emit(100);

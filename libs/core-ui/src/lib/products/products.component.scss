@@ -1,23 +1,12 @@
 .example-card {
-  max-width: 500px;
-  margin: 10px;
+  width: 200px;
 }
 
 .example-card img {
-  max-height: 400px;
-}
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+  height: 200px;
 }
 
-.flex-me {
-  display: flex;
-  flex-flow: column wrap;
+mat-grid-tile {
   background: grey;
-  padding: 5px 0;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-  justify-content: space-around;
-  align-items: center;
+  color: grey;
 }

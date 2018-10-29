@@ -23,8 +23,21 @@
             "polyfills": "apps/customer-portal/src/polyfills.ts",
             "tsConfig": "apps/customer-portal/tsconfig.app.json",
             "assets": [
-              "apps/customer-portal/src/favicon.ico",
-              "apps/customer-portal/src/assets"
+              {
+                "glob": "**/*",
+                "input": "apps/customer-portal/src/assets",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "apps/customer-portal/src/",
+                "output": "/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/core-ui/src/assets/",
+                "output": "/assets/"
+              }
             ],
             "styles": ["apps/customer-portal/src/styles.scss"],
             "scripts": []

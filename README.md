@@ -19,6 +19,9 @@ ng generate component login --project=core-ui -m --export
 
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
 
+Copying assets https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md#project-assets
+https://github.com/nrwl/nx/issues/88
+
 ## Quick Start & Documentation
 
 [Watch a 5-minute video on how to get started with Nx.](http://nrwl.io/nx)

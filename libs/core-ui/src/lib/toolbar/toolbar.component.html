@@ -5,7 +5,7 @@
       </span></button>
     <span class="example-spacer"></span>
     <button mat-icon-button aria-label="Cart" class="menu-item">
-      <mat-icon matBadge="0" matBadgeColor="warn" matBadgeSize="medium">shopping_cart</mat-icon>
+      <mat-icon matBadge={{cartItemCount}} matBadgeColor="warn" matBadgeSize="medium">shopping_cart</mat-icon>
     </button>
     <div *ngIf="loggedIn; else loggedOut">
       <button mat-icon-button aria-label="Avatar" [matMenuTriggerFor]="logOutMenu" class="menu-item">

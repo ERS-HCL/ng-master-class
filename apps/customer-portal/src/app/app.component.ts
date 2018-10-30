@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from './+state/app.reducer';
 import { Store } from '@ngrx/store';
-import { LoadApp } from './+state/app.actions';
+import { LoadApp, CreateCart } from './+state/app.actions';
 import { fadeAnimation } from './animations';
 
 @Component({
@@ -17,5 +17,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(new LoadApp());
+    this.store.dispatch(new CreateCart());
   }
 }

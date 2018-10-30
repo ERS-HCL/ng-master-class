@@ -26,8 +26,12 @@ export class ProductsComponent implements OnInit {
   @Input() subBreedImages: string[];
   @Input() breedImagesLoaded: boolean;
   @Input() subBreedImagesLoaded: boolean;
+  @Input() breedUnitPrice: number;
   @Input() hasSubBreed: boolean;
+  @Input() cartItemCount: number;
+  @Input() breedAvailiabilty: boolean;
   @Output() OnBuy = new EventEmitter();
+  @Output() OnCheckout = new EventEmitter();
   constructor() {}
 
   ngOnInit() {
@@ -41,6 +45,10 @@ export class ProductsComponent implements OnInit {
   }
 
   public onBuy() {
-    this.OnBuy.emit(100);
+    this.OnBuy.emit(this.breedUnitPrice);
+  }
+
+  public onCheckOut() {
+    this.OnCheckout.emit();
   }
 }

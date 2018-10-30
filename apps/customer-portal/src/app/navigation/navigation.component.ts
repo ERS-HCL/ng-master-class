@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavElement } from '@hcl-ers/core-ui';
 import { AuthenticationService } from '../_services/authentication-service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../+state/app.reducer';
+import { appQuery } from '../+state/app.selectors';
 
 @Component({
   selector: 'hcl-ers-navigation',
@@ -10,10 +14,11 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   navTitle = 'Puppy Paws Pets';
-
+  cartItemCount: Observable<number>;
   constructor(
     private authenticationService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
   // tslint:disable-next-line:no-input-rename
   navElements: Array<NavElement> = [
@@ -25,7 +30,9 @@ export class NavigationComponent implements OnInit {
     return this.authenticationService.isLoggedIn();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cartItemCount = this.store.pipe(select(appQuery.getShoppingCartCount));
+  }
 
   onLogin() {
     this.router.navigate(['login']);

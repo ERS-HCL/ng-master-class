@@ -1,48 +1,60 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" (window:resize)="onResize($event)" gutterSize="0">
-  <div *ngIf="hasSubBreed===false; else subBreeds">
-    <mat-grid-tile *ngFor="let image of breedImages">
-      <mat-card class="example-card">
-        <img mat-card-image image-preloader={{image}} alt="Photo of a Shiba Inu">
-        <mat-card-content>
+<div class="container">
 
-          <mat-chip-list>
-            <mat-chip color="primary" selected class="chips">$ 100</mat-chip>
-            <mat-chip color="accent" selected class="chips">{{'available' | uppercase}}</mat-chip>
-          </mat-chip-list>
+  <mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" (window:resize)="onResize($event)" gutterSize="0">
+    <div *ngIf="hasSubBreed===false; else subBreeds">
+      <mat-grid-tile *ngFor="let image of breedImages">
+        <mat-card class="example-card">
+          <img mat-card-image image-preloader={{image}} alt="Photo of a Shiba Inu">
+          <mat-card-content>
 
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
-          </button>
-          <button mat-icon-button (click)="onBuy()">
-            <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </div>
-  <ng-template #subBreeds>
-    <mat-grid-tile *ngFor="let image of subBreedImages">
-      <mat-card class="example-card">
-        <img mat-card-image image-preloader={{image}} alt="Photo of a Shiba Inu">
-        <mat-card-content>
+            <mat-chip-list>
+              <mat-chip color="primary" selected class="chips">$ {{breedUnitPrice}}</mat-chip>
+              <mat-chip color="warning" selected class="chips">{{ ((breedAvailiabilty === true) ?'available':'not
+                available') |
+                uppercase}}</mat-chip>
+            </mat-chip-list>
 
-          <mat-chip-list>
-            <mat-chip color="primary" selected>$ 100</mat-chip>
-            <mat-chip color="accent" selected>Available</mat-chip>
-          </mat-chip-list>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onBuy()" [disabled]="!breedAvailiabilty">
+              <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </div>
+    <ng-template #subBreeds>
+      <mat-grid-tile *ngFor="let image of subBreedImages">
+        <mat-card class="example-card">
+          <img mat-card-image image-preloader={{image}} alt="Photo of a Shiba Inu">
+          <mat-card-content>
 
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-icon-button>
-            <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
-          </button>
-          <button mat-icon-button (click)="onBuy()">
-            <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-grid-tile>
-  </ng-template>
-</mat-grid-list>
+            <mat-chip-list>
+              <mat-chip color="primary" selected class="chips">$ {{breedUnitPrice}}</mat-chip>
+              <mat-chip color="warning" selected class="chips">{{ ((breedAvailiabilty === true) ?'available':'not
+                available') |
+                uppercase}}</mat-chip>
+            </mat-chip-list>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
+            </button>
+            <button mat-icon-button (click)="onBuy()">
+              <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </ng-template>
+  </mat-grid-list>
+  <span class="done">
+    <button mat-fab (click)="onCheckOut()" [disabled]="cartItemCount == 0">
+      <mat-icon aria-label="Example icon-button with a heart icon">forward</mat-icon>
+    </button>
+  </span>
+</div>

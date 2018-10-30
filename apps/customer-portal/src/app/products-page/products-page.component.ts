@@ -7,7 +7,8 @@ import { appQuery } from '../+state/app.selectors';
 import {
   LoadBreedImages,
   LoadSubBreedImages,
-  HasSubBreeds
+  HasSubBreeds,
+  AddCartItem
 } from '../+state/app.actions';
 import { BreedParams } from '@hcl-ers/data-services';
 
@@ -22,6 +23,9 @@ export class ProductsPageComponent implements OnInit {
   subBreedImages: Observable<string[]>;
   breedImagesLoaded: Observable<boolean>;
   subBreedImagesLoaded: Observable<boolean>;
+  breedUnitPrice: Observable<number>;
+  breedAvailiabilty: Observable<boolean>;
+  cartItemCount: Observable<number>;
   isSubBreed: Observable<boolean>;
   areSubBreedsAvailable = false;
   selectedBreed: string;
@@ -33,6 +37,11 @@ export class ProductsPageComponent implements OnInit {
     this.breeds = this.store.pipe(select(appQuery.getBreeds));
     this.breedImages = this.store.pipe(select(appQuery.getBreedImages));
     this.subBreedImages = this.store.pipe(select(appQuery.getSubBreedImages));
+    this.breedUnitPrice = this.store.pipe(select(appQuery.getBreedUnitPrice));
+    this.cartItemCount = this.store.pipe(select(appQuery.getShoppingCartCount));
+    this.breedAvailiabilty = this.store.pipe(
+      select(appQuery.getBreedAvailiability)
+    );
     this.breedImagesLoaded = this.store.pipe(
       select(appQuery.getBreedImagesLoaded)
     );
@@ -43,30 +52,42 @@ export class ProductsPageComponent implements OnInit {
   }
 
   onBuy($event): void {
+    // console.log($event);
+    this.store.dispatch(
+      new AddCartItem({
+        id: this.selectedBreed,
+        productName: this.selectedBreed,
+        qty: 1,
+        unitPrice: parseInt($event, 10)
+      })
+    );
+  }
+
+  onCheckout(): void {
     this.router.navigate(['user-registration']);
   }
 
   onBreedSelection($event) {
-    console.log($event);
+    //  console.log($event);
     this.selectedBreed = $event;
     this.store.dispatch(new LoadBreedImages($event));
   }
 
   hasSubBreed($event) {
-    console.log($event);
+    //   console.log($event);
     this.areSubBreedsAvailable = $event;
     this.store.dispatch(new HasSubBreeds($event));
   }
 
   onSubBreedSelection($event) {
-    console.log($event);
+    //    console.log($event);
     this.selectedSubBreed = $event;
     if (this.areSubBreedsAvailable) {
       this.breedParams = {
         breed: this.selectedBreed,
         subBreed: this.selectedSubBreed
       };
-      console.log('Dispatching Sub Breeds');
+      //      console.log('Dispatching Sub Breeds');
       this.store.dispatch(new LoadSubBreedImages(this.breedParams));
     }
   }

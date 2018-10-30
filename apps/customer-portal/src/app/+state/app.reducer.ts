@@ -20,6 +20,8 @@ export interface AppState {
   selectedId?: string; // which App record has been selected
   breedImagesLoaded: boolean;
   subBreedImagesLoaded: boolean;
+  breedUnitPrice: number;
+  breedAvailability: boolean;
   cart?: ShoppingCart;
   loaded: boolean; // has the App list been loaded
   error?: any; // last none error (if any)
@@ -36,7 +38,7 @@ export interface ShoppingCart {
 export interface LineItem {
   id?: string; // line item id
   productName: string; // product name
-  unitPrice?: string; // product variant unit price
+  unitPrice?: number; // product variant unit price
   qty?: number;
 }
 
@@ -48,6 +50,8 @@ export const initialState: AppState = {
   subBreedImages: undefined,
   breedImagesLoaded: false,
   subBreedImagesLoaded: false,
+  breedUnitPrice: 0,
+  breedAvailability: false,
   loaded: false
 };
 
@@ -87,7 +91,10 @@ export function appReducer(
       state = {
         ...state,
         breedImages: action.payload,
-        breedImagesLoaded: true
+        breedImagesLoaded: true,
+        breedUnitPrice: Math.floor(Math.random() * 100) + 500,
+        breedAvailability:
+          Math.round(Math.random() * 99) + 1 > 10 ? true : false
       };
       break;
     }
@@ -95,7 +102,10 @@ export function appReducer(
       state = {
         ...state,
         subBreedImages: action.payload,
-        subBreedImagesLoaded: true
+        subBreedImagesLoaded: true,
+        breedUnitPrice: Math.floor(Math.random() * 100) + 500,
+        breedAvailability:
+          Math.round(Math.random() * 99) + 1 > 10 ? true : false
       };
       break;
     }
@@ -127,12 +137,23 @@ export function appReducer(
       break;
     }
     case AppActionTypes.AddCartItem: {
-      state = {
-        ...state,
-        cart: {
-          lineItems: [...state.cart.lineItems, action.payload]
-        }
-      };
+      let add = true;
+      if (state.cart !== undefined && state.cart.lineItems !== undefined) {
+        state.cart.lineItems.map(lineItem => {
+          if (lineItem.productName === action.payload.productName) {
+            add = false; // This is already present
+            return;
+          }
+        });
+      }
+      if (add) {
+        state = {
+          ...state,
+          cart: {
+            lineItems: [...state.cart.lineItems, action.payload]
+          }
+        };
+      }
       break;
     }
     case AppActionTypes.UpdateCartItem: {

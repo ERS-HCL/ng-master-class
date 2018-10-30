@@ -42,6 +42,16 @@ const getSubBreedImages = createSelector(
   }
 );
 
+const getBreedUnitPrice = createSelector(
+  getAppState,
+  (state: AppState) => state.breedUnitPrice
+);
+
+const getBreedAvailiability = createSelector(
+  getAppState,
+  (state: AppState) => state.breedAvailability
+);
+
 const getBreedImages = createSelector(
   getAppState,
   getBreedImagesLoaded,
@@ -60,6 +70,16 @@ const getSelectedApp = createSelector(getBreeds, getSelectedId, (app, id) => {
   return result ? Object.assign({}, result) : undefined;
 });
 
+const getShoppingCart = createSelector(
+  getAppState,
+  (state: AppState) => state.cart
+);
+
+const getShoppingCartCount = createSelector(
+  getAppState,
+  (state: AppState) => (state.cart.lineItems ? state.cart.lineItems.length : 0)
+);
+
 export const appQuery = {
   getLoaded,
   getError,
@@ -69,5 +89,9 @@ export const appQuery = {
   getSubBreedImagesLoaded,
   getSubBreedImages,
   getBreedImages,
-  getSelectedApp
+  getBreedUnitPrice,
+  getBreedAvailiability,
+  getSelectedApp,
+  getShoppingCart,
+  getShoppingCartCount
 };

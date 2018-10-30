@@ -126,7 +126,7 @@ export function appReducer(
       state = {
         ...state,
         user: action.payload
-      }
+      };
       break;
     }
     case AppActionTypes.CreateCart: {
@@ -139,7 +139,7 @@ export function appReducer(
       };
       break;
     }
-    case AppActionTypes.CreateCart: {
+    case AppActionTypes.ClearCart: {
       state = {
         ...state,
         cart: {

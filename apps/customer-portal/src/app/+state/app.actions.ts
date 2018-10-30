@@ -17,7 +17,8 @@ export enum AppActionTypes {
   UpdateCartItem = '[App] Update Cart Item',
   DeleteCartItem = '[App] Update Cart Item',
   ClearCart = '[App] Clear Cart',
-  UpdateUser = '[App] Update User'
+  UpdateUser = '[App] Update User',
+  PurchaseCompleted = '[App] Purchase Completed'
 }
 
 export class LoadApp implements Action {
@@ -30,6 +31,10 @@ export class CreateCart implements Action {
 
 export class ClearCart implements Action {
   readonly type = AppActionTypes.ClearCart;
+}
+
+export class PurchaseCompleted implements Action {
+  readonly type = AppActionTypes.PurchaseCompleted;
 }
 
 export class UpdateUser implements Action {
@@ -103,7 +108,8 @@ export type AppAction =
   | DeleteCartItem
   | UpdateCartItem
   | ClearCart
-  | UpdateUser;
+  | UpdateUser
+  | PurchaseCompleted;
 
 export const fromAppActions = {
   LoadApp,
@@ -119,5 +125,6 @@ export const fromAppActions = {
   DeleteCartItem,
   UpdateCartItem,
   ClearCart,
-  UpdateUser
+  UpdateUser,
+  PurchaseCompleted
 };

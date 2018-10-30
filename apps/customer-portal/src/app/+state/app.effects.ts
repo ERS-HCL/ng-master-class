@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { DataPersistence } from '@nrwl/nx';
-import { Action } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
 import { AppState } from './app.reducer';
 import {
   LoadApp,
@@ -9,7 +9,8 @@ import {
   AppLoadError,
   AppActionTypes,
   BreedImagesLoaded,
-  SubBreedImagesLoaded
+  SubBreedImagesLoaded,
+  ClearCart
 } from './app.actions';
 import { DogService } from '@hcl-ers/data-services';
 import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
@@ -22,7 +23,8 @@ export class AppEffects {
     private actions$: Actions,
     private dataPersistence: DataPersistence<AppState>,
     private _dogService: DogService,
-    private router: Router
+    private router: Router,
+    private store: Store<AppState>
   ) {}
 
   @Effect()
@@ -35,6 +37,15 @@ export class AppEffects {
         catchError(error => of(new AppLoadError(error)))
       )
     )
+  );
+
+  @Effect()
+  purchaseCompleted$: Observable<Action> = this.actions$.pipe(
+    ofType(AppActionTypes.PurchaseCompleted),
+    tap(_ => {
+      this.store.dispatch(new ClearCart());
+      this.router.navigate(['/']);
+    })
   );
 
   @Effect({ dispatch: false })

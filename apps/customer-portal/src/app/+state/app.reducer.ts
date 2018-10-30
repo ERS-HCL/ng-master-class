@@ -136,6 +136,22 @@ export function appReducer(
       };
       break;
     }
+    case AppActionTypes.DeleteCartItem: {
+      if (state.cart !== undefined && state.cart.lineItems !== undefined) {
+        state = {
+          ...state,
+          cart: {
+            lineItems:
+              state.cart !== undefined && state.cart.lineItems !== undefined
+                ? state.cart.lineItems.filter(lineItem => {
+                    return lineItem.productName !== action.payload;
+                  })
+                : []
+          }
+        };
+      }
+      break;
+    }
     case AppActionTypes.AddCartItem: {
       let add = true;
       if (state.cart !== undefined && state.cart.lineItems !== undefined) {

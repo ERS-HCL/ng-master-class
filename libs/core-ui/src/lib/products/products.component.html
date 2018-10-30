@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" (window:resize)="onResize($event)">
+<mat-grid-list [cols]="breakpoint" rowHeight="1:1.5" (window:resize)="onResize($event)" gutterSize="0">
   <div *ngIf="hasSubBreed===false; else subBreeds">
     <mat-grid-tile *ngFor="let image of breedImages">
       <mat-card class="example-card">
@@ -6,8 +6,8 @@
         <mat-card-content>
 
           <mat-chip-list>
-            <mat-chip color="primary" selected>$ 100</mat-chip>
-            <mat-chip color="accent" selected>{{'available' | uppercase}}</mat-chip>
+            <mat-chip color="primary" selected class="chips">$ 100</mat-chip>
+            <mat-chip color="accent" selected class="chips">{{'available' | uppercase}}</mat-chip>
           </mat-chip-list>
 
         </mat-card-content>

@@ -14,6 +14,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import { SelectorPanelComponent } from './selector-panel/selector-panel.component';
 import { BreedsPipe } from './selector-panel/breeds-transform.pipe';
 import { ImagePreloaderDirective } from './common/image-preloader.directive';
+import { HeroImageComponent } from './hero-image/hero-image.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { ImagePreloaderDirective } from './common/image-preloader.directive';
     SnackBarComponent,
     SelectorPanelComponent,
     BreedsPipe,
-    ImagePreloaderDirective
+    ImagePreloaderDirective,
+    HeroImageComponent
   ],
   exports: [
     ToolbarComponent,
@@ -45,7 +47,8 @@ import { ImagePreloaderDirective } from './common/image-preloader.directive';
     SnackBarComponent,
     SelectorPanelComponent,
     BreedsPipe,
-    ImagePreloaderDirective
+    ImagePreloaderDirective,
+    HeroImageComponent
   ],
   providers: [DogService]
 })

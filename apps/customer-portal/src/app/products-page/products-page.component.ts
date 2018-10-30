@@ -14,7 +14,7 @@ import { BreedParams } from '@hcl-ers/data-services';
 @Component({
   selector: 'hcl-ers-products-page',
   templateUrl: './products-page.component.html',
-  styleUrls: ['./products-page.component.css']
+  styleUrls: ['./products-page.component.scss']
 })
 export class ProductsPageComponent implements OnInit {
   breeds: Observable<Map<string, any[]>>;

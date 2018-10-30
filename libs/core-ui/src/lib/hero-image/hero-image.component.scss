@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Spicy+Rice');
+
 .hero {
   background-image: url('../../assets/hero.jpg');
   background-size: cover;
@@ -5,7 +7,7 @@
   width: 100wh;
   height: 60vh;
   display: flex;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Spicy Rice', cursive, Roboto, 'Helvetica Neue', sans-serif;
 }
 
 .center-content {
@@ -44,4 +46,9 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.7);
   color: white;
+}
+
+.mat-icon {
+  font-size: 40px;
+  margin: 10px;
 }

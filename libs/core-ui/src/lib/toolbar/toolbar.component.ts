@@ -13,7 +13,7 @@ export interface NavElement {
 })
 export class ToolbarComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
-  @Input('nav-title') navTitle = 'Pet Clinic';
+  @Input('nav-title') navTitle = 'Puppy Paws Pets';
   @Input() loggedIn = false;
   // tslint:disable-next-line:no-input-rename
   @Input('nav-elements')

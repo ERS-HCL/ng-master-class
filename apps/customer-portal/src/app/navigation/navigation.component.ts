@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  navTitle = 'Pet Clinic';
+  navTitle = 'Puppy Paws Pets';
 
   constructor(
     private authenticationService: AuthenticationService,

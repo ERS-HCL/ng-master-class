@@ -1,24 +1,30 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface ShoppingCart {
+  id?: string; // cart id
+  lineItems?: LineItem[]; // cart line items
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
+export interface User {
+  name: string;
+  address: string;
+}
+
+/**
+ * cart line item details
+ */
+export interface LineItem {
+  id?: string; // line item id
+  productName: string; // product name
+  unitPrice?: number; // product variant unit price
+  qty?: number;
+}
+
+const ELEMENT_DATA: LineItem[] = [
+  { productName: 'Boxer', qty: 1, unitPrice: 100 },
+  { productName: 'German Sheppard', qty: 1, unitPrice: 100 },
+  { productName: 'Poodle', qty: 1, unitPrice: 100 }
 ];
 
 @Component({
@@ -27,8 +33,16 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['productName', 'qty', 'unitPrice'];
   dataSource = ELEMENT_DATA;
+  total: number;
+  @Input() user: User;
+  @Input()
+  set cart(cart: ShoppingCart) {
+    this.dataSource = cart.lineItems;
+    this.total = this.dataSource.reduce((c, v) => c + v.qty * v.unitPrice, 0);
+  }
+
   @Output() OnPurchase = new EventEmitter();
   constructor() {}
 

@@ -10,7 +10,7 @@ table {
   max-height: 400px;
 }
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('../../assets/login-avatar.png');
   background-size: cover;
 }
 
@@ -23,4 +23,8 @@ table {
   margin-bottom: 5px;
   justify-content: space-around;
   align-items: center;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
 }

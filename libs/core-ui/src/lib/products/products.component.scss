@@ -6,11 +6,16 @@
   height: 200px;
 }
 
-mat-grid-tile {
-  background: grey;
-  color: grey;
+mat-grid-list {
+  background-image: linear-gradient(
+    to bottom,
+    #c4501d,
+    #c8541b,
+    #cd5719,
+    #d15b16,
+    #d55f13
+  );
 }
-
 .chips {
   font-size: x-small;
 }

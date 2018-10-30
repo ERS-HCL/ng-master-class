@@ -8,6 +8,21 @@ export interface Tile {
   text: string;
 }
 
+interface ShoppingCart {
+  id?: string; // cart id
+  lineItems?: LineItem[]; // cart line items
+}
+
+/**
+ * cart line item details
+ */
+interface LineItem {
+  id?: string; // line item id
+  productName: string; // product name
+  unitPrice?: number; // product variant unit price
+  qty?: number;
+}
+
 @Component({
   selector: 'hcl-ers-products',
   templateUrl: './products.component.html',
@@ -21,7 +36,7 @@ export class ProductsComponent implements OnInit {
     { text: 'Three', cols: 1, rows: 2, color: 'lightpink' },
     { text: 'Four', cols: 2, rows: 2, color: '#DDBDF1' }
   ];
-
+  @Input() selectedBreed: string;
   @Input() breedImages: string[];
   @Input() subBreedImages: string[];
   @Input() breedImagesLoaded: boolean;
@@ -29,6 +44,7 @@ export class ProductsComponent implements OnInit {
   @Input() breedUnitPrice: number;
   @Input() hasSubBreed: boolean;
   @Input() cartItemCount: number;
+  @Input() cart: ShoppingCart;
   @Input() breedAvailiabilty: boolean;
   @Output() OnBuy = new EventEmitter();
   @Output() OnCheckout = new EventEmitter();
@@ -42,6 +58,16 @@ export class ProductsComponent implements OnInit {
   onResize(event) {
     this.breakpoint =
       window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
+  }
+
+  public isItemInCart(): boolean {
+    let result = false;
+    result =
+      this.cart.lineItems.filter(
+        item => item.productName === this.selectedBreed
+      ).length > 0;
+    // console.log(result, this.breedAvailiabilty);
+    return result && this.breedAvailiabilty;
   }
 
   public onBuy() {

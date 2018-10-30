@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
-import { AppState } from '../+state/app.reducer';
+import { AppState, ShoppingCart } from '../+state/app.reducer';
 import { Observable } from 'rxjs';
 import { appQuery } from '../+state/app.selectors';
 import {
@@ -26,6 +26,7 @@ export class ProductsPageComponent implements OnInit {
   breedUnitPrice: Observable<number>;
   breedAvailiabilty: Observable<boolean>;
   cartItemCount: Observable<number>;
+  cart: Observable<ShoppingCart>;
   isSubBreed: Observable<boolean>;
   areSubBreedsAvailable = false;
   selectedBreed: string;
@@ -38,6 +39,7 @@ export class ProductsPageComponent implements OnInit {
     this.breedImages = this.store.pipe(select(appQuery.getBreedImages));
     this.subBreedImages = this.store.pipe(select(appQuery.getSubBreedImages));
     this.breedUnitPrice = this.store.pipe(select(appQuery.getBreedUnitPrice));
+    this.cart = this.store.pipe(select(appQuery.getShoppingCart));
     this.cartItemCount = this.store.pipe(select(appQuery.getShoppingCartCount));
     this.breedAvailiabilty = this.store.pipe(
       select(appQuery.getBreedAvailiability)

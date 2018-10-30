@@ -19,7 +19,7 @@
             <button mat-icon-button>
               <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
             </button>
-            <button mat-icon-button (click)="onBuy()" [disabled]="!breedAvailiabilty">
+            <button mat-icon-button (click)="onBuy()" [disabled]="isItemInCart()">
               <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
             </button>
           </mat-card-actions>
@@ -44,7 +44,7 @@
             <button mat-icon-button>
               <mat-icon aria-label="Example icon-button with a heart icon" color="accent">favorite</mat-icon>
             </button>
-            <button mat-icon-button (click)="onBuy()">
+            <button mat-icon-button (click)="onBuy()" [disabled]="isItemInCart()">
               <mat-icon aria-label="Add to cart" color="primary">add_shopping_cart</mat-icon>
             </button>
           </mat-card-actions>

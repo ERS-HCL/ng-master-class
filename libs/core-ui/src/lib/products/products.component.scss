@@ -33,3 +33,6 @@ mat-card-actions {
   bottom: 10px;
   right: 50px;
 }
+button:disabled {
+  background: lightgrey;
+}

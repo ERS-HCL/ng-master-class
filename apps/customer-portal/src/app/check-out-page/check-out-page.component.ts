@@ -4,7 +4,11 @@ import { Store, select } from '@ngrx/store';
 import { AppState, ShoppingCart, User } from '../+state/app.reducer';
 import { Observable } from 'rxjs';
 import { appQuery } from '../+state/app.selectors';
-import { PurchaseCompleted, ClearCart } from '../+state/app.actions';
+import {
+  PurchaseCompleted,
+  ClearCart,
+  DeleteCartItem
+} from '../+state/app.actions';
 
 @Component({
   selector: 'hcl-ers-check-out-page',
@@ -24,5 +28,10 @@ export class CheckOutPageComponent implements OnInit {
   onPurchase($event): void {
     this.store.dispatch(new ClearCart());
     this.router.navigate(['/']);
+  }
+
+  onDelete($event): void {
+    console.log('Delete' + $event);
+    this.store.dispatch(new DeleteCartItem($event));
   }
 }

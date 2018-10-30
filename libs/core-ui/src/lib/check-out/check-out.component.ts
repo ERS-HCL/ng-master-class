@@ -33,7 +33,7 @@ const ELEMENT_DATA: LineItem[] = [
   styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit {
-  displayedColumns: string[] = ['productName', 'qty', 'unitPrice'];
+  displayedColumns: string[] = ['productName', 'qty', 'unitPrice', 'action'];
   dataSource = ELEMENT_DATA;
   total: number;
   @Input() user: User;
@@ -44,10 +44,16 @@ export class CheckOutComponent implements OnInit {
   }
 
   @Output() OnPurchase = new EventEmitter();
+  @Output() OnDelete = new EventEmitter();
+
   constructor() {}
 
   ngOnInit() {}
 
+  public onDelete(row) {
+    //    console.log(row);
+    this.OnDelete.emit(row.productName);
+  }
   public onPurchase() {
     this.OnPurchase.emit(100);
   }

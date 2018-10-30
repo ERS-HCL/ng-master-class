@@ -15,7 +15,7 @@ export enum AppActionTypes {
   CreateCart = '[App] Create Cart',
   AddCartItem = '[App] Add Cart Item',
   UpdateCartItem = '[App] Update Cart Item',
-  DeleteCartItem = '[App] Update Cart Item',
+  DeleteCartItem = '[App] Delete Cart Item',
   ClearCart = '[App] Clear Cart',
   UpdateUser = '[App] Update User',
   PurchaseCompleted = '[App] Purchase Completed'

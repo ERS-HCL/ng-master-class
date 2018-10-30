@@ -185,21 +185,6 @@ export function appReducer(
       }
       break;
     }
-    case AppActionTypes.UpdateCartItem: {
-      state = Object.assign({}, state, {
-        ...state,
-        cart: {
-          lineItems:
-            state.cart.lineItems !== undefined
-              ? state.cart.lineItems.map(lineItem => {
-                  return lineItem.id === action.payload
-                    ? Object.assign({}, lineItem, action.payload)
-                    : lineItem;
-                })
-              : state
-        }
-      });
-    }
   }
   return state;
 }

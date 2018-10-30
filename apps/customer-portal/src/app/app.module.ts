@@ -32,6 +32,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './_services/jwt-interceptor';
 import { ErrorInterceptorService } from './_services/error-interceptor';
 import { FakeBackendInterceptorService } from './_services/fake-backend';
+import { fromEventPattern } from 'rxjs';
 
 const fakeBackendProvider = {
   // use fake backend in place of Http service for backend-less development

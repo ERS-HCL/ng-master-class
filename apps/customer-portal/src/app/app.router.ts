@@ -16,7 +16,7 @@ export const router: Routes = [
   { path: 'login', component: AppLoginComponent },
   {
     path: 'user-registration',
-    loadChildren: '@hcl-ers/user-registration#UserRegistrationModule',
+    loadChildren: './user-registration-page#UserRegistrationPageModule',
     canActivate: [AuthGuard]
   },
   {

@@ -5,6 +5,8 @@ import { CheckOutPageComponent } from './check-out-page/check-out-page.component
 import { AboutComponent } from '@hcl-ers/core-ui';
 import { ProductsPageComponent } from './products-page/products-page.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { CartGuard } from './_guards/cart.guard';
+import { UserGuard } from './_guards/user.guard';
 
 export const router: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -17,12 +19,12 @@ export const router: Routes = [
   {
     path: 'user-registration',
     loadChildren: './user-registration-page#UserRegistrationPageModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, CartGuard]
   },
   {
     path: 'check-out',
     component: CheckOutPageComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, UserGuard]
   }
 ];
 

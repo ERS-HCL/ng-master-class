@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ScrollTopService } from '@hcl-ers/core-ui';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'hcl-ers-user-registration',
@@ -12,24 +12,34 @@ export class UserRegistrationComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
+  @Input() user: any;
+  @Output() OnComplete = new EventEmitter();
   constructor(
     private _formBuilder: FormBuilder,
-    private router: Router,
     private _scrollTopService: ScrollTopService
   ) {}
 
   ngOnInit() {
     this._scrollTopService.setScrollTop();
     this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
+      firstCtrl: [
+        this.user && this.user.name ? this.user.name : '',
+        Validators.required
+      ]
     });
     this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+      secondCtrl: [
+        this.user && this.user.address ? this.user.address : '',
+        Validators.required
+      ]
     });
   }
 
   public onCheckOut() {
-    this.router.navigate(['check-out']);
+    this.OnComplete.emit({
+      name: this.firstFormGroup.value.firstCtrl,
+      address: this.secondFormGroup.value.secondCtrl
+    });
+    //    this.router.navigate(['check-out']);
   }
 }

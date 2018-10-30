@@ -75,9 +75,12 @@ const getShoppingCart = createSelector(
   (state: AppState) => state.cart
 );
 
+const getUser = createSelector(getAppState, (state: AppState) => state.user);
+
 const getShoppingCartCount = createSelector(
   getAppState,
-  (state: AppState) => (state.cart.lineItems ? state.cart.lineItems.length : 0)
+  (state: AppState) =>
+    state.cart && state.cart.lineItems ? state.cart.lineItems.length : 0
 );
 
 export const appQuery = {
@@ -93,5 +96,6 @@ export const appQuery = {
   getBreedAvailiability,
   getSelectedApp,
   getShoppingCart,
-  getShoppingCartCount
+  getShoppingCartCount,
+  getUser
 };

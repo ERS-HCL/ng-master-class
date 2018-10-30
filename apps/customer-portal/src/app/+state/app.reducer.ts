@@ -23,8 +23,14 @@ export interface AppState {
   breedUnitPrice: number;
   breedAvailability: boolean;
   cart?: ShoppingCart;
+  user?: User;
   loaded: boolean; // has the App list been loaded
   error?: any; // last none error (if any)
+}
+
+export interface User {
+  name: string;
+  address: string;
 }
 
 export interface ShoppingCart {
@@ -114,6 +120,13 @@ export function appReducer(
         ...state,
         error: action.payload
       };
+      break;
+    }
+    case AppActionTypes.UpdateUser: {
+      state = {
+        ...state,
+        user: action.payload
+      }
       break;
     }
     case AppActionTypes.CreateCart: {

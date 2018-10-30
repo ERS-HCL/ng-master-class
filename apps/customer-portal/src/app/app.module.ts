@@ -33,6 +33,8 @@ import { JwtInterceptorService } from './_services/jwt-interceptor';
 import { ErrorInterceptorService } from './_services/error-interceptor';
 import { FakeBackendInterceptorService } from './_services/fake-backend';
 import { fromEventPattern } from 'rxjs';
+import { CartGuard } from './_guards/cart.guard';
+import { UserGuard } from './_guards/user.guard';
 
 const fakeBackendProvider = {
   // use fake backend in place of Http service for backend-less development
@@ -74,6 +76,8 @@ const fakeBackendProvider = {
     UserService,
     AlertService,
     AuthGuard,
+    CartGuard,
+    UserGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptorService,

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Entity, LineItem } from './app.reducer';
+import { Entity, LineItem, User } from './app.reducer';
 import { BreedParams } from '@hcl-ers/data-services';
 
 export enum AppActionTypes {
@@ -16,7 +16,8 @@ export enum AppActionTypes {
   AddCartItem = '[App] Add Cart Item',
   UpdateCartItem = '[App] Update Cart Item',
   DeleteCartItem = '[App] Update Cart Item',
-  ClearCart = '[App] Clear Cart'
+  ClearCart = '[App] Clear Cart',
+  UpdateUser = '[App] Update User'
 }
 
 export class LoadApp implements Action {
@@ -29,6 +30,11 @@ export class CreateCart implements Action {
 
 export class ClearCart implements Action {
   readonly type = AppActionTypes.ClearCart;
+}
+
+export class UpdateUser implements Action {
+  readonly type = AppActionTypes.UpdateUser;
+  constructor(public payload: User) {}
 }
 
 export class DeleteCartItem implements Action {
@@ -96,7 +102,8 @@ export type AppAction =
   | AddCartItem
   | DeleteCartItem
   | UpdateCartItem
-  | ClearCart;
+  | ClearCart
+  | UpdateUser;
 
 export const fromAppActions = {
   LoadApp,
@@ -111,5 +118,6 @@ export const fromAppActions = {
   AddCartItem,
   DeleteCartItem,
   UpdateCartItem,
-  ClearCart
+  ClearCart,
+  UpdateUser
 };

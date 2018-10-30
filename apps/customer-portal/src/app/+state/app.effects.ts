@@ -13,14 +13,16 @@ import {
 } from './app.actions';
 import { DogService } from '@hcl-ers/data-services';
 import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AppEffects {
   constructor(
     private actions$: Actions,
     private dataPersistence: DataPersistence<AppState>,
-    private _dogService: DogService
+    private _dogService: DogService,
+    private router: Router
   ) {}
 
   @Effect()
@@ -33,6 +35,12 @@ export class AppEffects {
         catchError(error => of(new AppLoadError(error)))
       )
     )
+  );
+
+  @Effect({ dispatch: false })
+  routeToInvoice$: Observable<Action> = this.actions$.pipe(
+    ofType(AppActionTypes.UpdateUser),
+    tap(_ => this.router.navigate(['check-out']))
   );
 
   @Effect()

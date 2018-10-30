@@ -68,7 +68,6 @@ export class ProductsPageComponent implements OnInit {
   }
 
   onBreedSelection($event) {
-    //  console.log($event);
     this.selectedBreed = $event;
     this.store.dispatch(new LoadBreedImages($event));
   }

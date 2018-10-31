@@ -1,0 +1,26 @@
+.container {
+  height: 100%;
+  padding: 10px;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to bottom,
+    #c4501d,
+    #c8541b,
+    #cd5719,
+    #d15b16,
+    #d55f13
+  );
+}
+mat-card {
+  height: 100vh;
+}
+.example-header-image {
+  background-image: url('../../assets/dog-avatar.png');
+  background-size: cover;
+}

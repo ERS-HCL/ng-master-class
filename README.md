@@ -2,9 +2,58 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
-## Nrwl Extensions for Angular (Nx)
+## Objective
 
-<a href="https://nrwl.io/nx"><img src="https://preview.ibb.co/mW6sdw/nx_logo.png"></a>
+This is a reference implementation for building enterprise applications using Angular CLI and Nx extensions.
+
+### Nx Extensions extends the Angular CLI project generation to provide a mono-repo for the application
+
+#### Technologies Used
+
+- Angular 6+
+- Nx Extensions
+- Angular Material
+- NGRX for State Management
+- CEO Dogs APIs for dog images and lists
+- NGX Logging for uniform logging / server side logging
+
+#### Patterns
+
+- Mono Repo - Faster deliveries , parrallel development , consistency , sharing
+- Observable Page Guards
+- Fake Backend intercepters for Authentication
+- Error Interceptor across the application for better UX - cross cutting concern
+- JWT Interceptor across the application - cross cutting concern
+- NGRX / Redux Pattern - Actions, Action Types, Reducers , App State , Effects , Selectors
+- API / Service Classes
+- Feature / Presentation Components
+- Atomic Design Patterns
+- Material UI Design
+- Page transition animation
+- Externalized Configuration
+
+### Use Case
+
+- This application simulates a pet shop
+- The list of breeds and sub breeds are aviable in the search box
+- The user can select from the available breeds and see the same photographs
+- The user needs to login before he can proceed with the shopping experience. If not logged in the user is prompted to login during this journey
+- Valid user name and password is admin/admin
+- One puppy per breed can be added to the cart
+
+#### The steps include
+
+- Add puppies to the cart (one per breed/sub-breed). Mulitple puppies of different breeds can be added to the cart
+- Add shipping/customer registration details
+- View/Modify final order
+- Purchase
+- Continue Shopping
+
+### Live Demo
+
+- Demo is available [here](https://trusting-morse-326429.netlify.com)
+
+#### Miscellaneous
 
 Nx is an open source toolkit for enterprise Angular applications.
 

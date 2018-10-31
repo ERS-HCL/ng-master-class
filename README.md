@@ -25,6 +25,7 @@ This is a reference implementation for building enterprise applications using An
 - Error Interceptor across the application for better UX - cross cutting concern
 - JWT Interceptor across the application - cross cutting concern
 - NGRX / Redux Pattern - Actions, Action Types, Reducers , App State , Effects , Selectors
+- Image Preloader (UX)
 - API / Service Classes
 - Global Alert / Snackbar Service
 - Feature / Presentation Components

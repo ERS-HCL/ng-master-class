@@ -54,6 +54,10 @@ This is a reference implementation for building enterprise applications using An
 
 - Demo is available [here](https://trusting-morse-326429.netlify.com)
 
+### Recorded
+
+![Demo](./docs/demo.gif)
+
 ### Project Structure
 
 - customer-portal-e2e - Customer Portal e2e tests

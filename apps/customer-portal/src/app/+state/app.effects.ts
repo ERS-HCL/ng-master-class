@@ -16,6 +16,7 @@ import { DogService } from '@hcl-ers/data-services';
 import { Subject, AsyncSubject, BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { NGXLogger } from 'ngx-logger';
 
 @Injectable()
 export class AppEffects {
@@ -24,7 +25,8 @@ export class AppEffects {
     private dataPersistence: DataPersistence<AppState>,
     private _dogService: DogService,
     private router: Router,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private logger: NGXLogger
   ) {}
 
   @Effect()
@@ -34,7 +36,10 @@ export class AppEffects {
       this._dogService.getBreeds().pipe(
         map((res: any) => res.message),
         map((res: any) => new AppLoaded(res)),
-        catchError(error => of(new AppLoadError(error)))
+        catchError(error => {
+          this.logger.error(error);
+          return of(new AppLoadError(error));
+        })
       )
     )
   );

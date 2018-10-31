@@ -32,7 +32,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptorService } from './_services/jwt-interceptor';
 import { ErrorInterceptorService } from './_services/error-interceptor';
 import { FakeBackendInterceptorService } from './_services/fake-backend';
-import { fromEventPattern } from 'rxjs';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { CartGuard } from './_guards/cart.guard';
 import { UserGuard } from './_guards/user.guard';
 
@@ -68,7 +68,10 @@ const fakeBackendProvider = {
     ),
     EffectsModule.forRoot([AppEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreRouterConnectingModule
+    StoreRouterConnectingModule,
+    // Server side logging
+    // [LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR}), ...],
+    LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG })
   ],
   providers: [
     DogService,

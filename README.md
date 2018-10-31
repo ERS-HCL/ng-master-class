@@ -57,6 +57,8 @@ This is a reference implementation for building enterprise applications using An
 
 Nx is an open source toolkit for enterprise Angular applications.
 
+Quick reference commands
+
 ```
 ng g app customer-portal --routing - Creating App
 ng generate lib core-ui --publishable
@@ -68,8 +70,7 @@ ng generate component login --project=core-ui -m --export
 
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
 
-Copying assets https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md#project-assets
-https://github.com/nrwl/nx/issues/88
+Copying assets from [multiple projects](https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md#project-assets) and [this](https://github.com/nrwl/nx/issues/88)
 
 ## Quick Start & Documentation
 

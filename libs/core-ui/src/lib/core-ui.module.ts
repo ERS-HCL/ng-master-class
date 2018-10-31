@@ -4,7 +4,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MaterialModule } from '@hcl-ers/material';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
-import { DataServicesModule, DogService } from '@hcl-ers/data-services';
 import { LoginComponent, LoginModel } from './login/login.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { RouterModule } from '@angular/router';
@@ -18,13 +17,7 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    MaterialModule,
-    DataServicesModule
-  ],
+  imports: [CommonModule, RouterModule, FormsModule, MaterialModule],
   declarations: [
     ToolbarComponent,
     AboutComponent,
@@ -53,6 +46,6 @@ import { FooterComponent } from './footer/footer.component';
     HeroImageComponent,
     FooterComponent
   ],
-  providers: [DogService]
+  providers: []
 })
 export class CoreUiModule {}

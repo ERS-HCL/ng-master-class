@@ -19,13 +19,14 @@ This is a reference implementation for building enterprise applications using An
 
 #### Patterns
 
-- Mono Repo - Faster deliveries , parrallel development , consistency , sharing
+- Nx Extensions Mono Repo - Faster deliveries , parrallel development , consistency , sharing
 - Observable Page Guards
 - Fake Backend intercepters for Authentication
 - Error Interceptor across the application for better UX - cross cutting concern
 - JWT Interceptor across the application - cross cutting concern
 - NGRX / Redux Pattern - Actions, Action Types, Reducers , App State , Effects , Selectors
 - API / Service Classes
+- Global Alert / Snackbar Service
 - Feature / Presentation Components
 - Atomic Design Patterns
 - Material UI Design
@@ -52,6 +53,17 @@ This is a reference implementation for building enterprise applications using An
 ### Live Demo
 
 - Demo is available [here](https://trusting-morse-326429.netlify.com)
+
+### Project Structure
+
+- customer-portal-e2e - Customer Portal e2e tests
+- customer-portal - Main App / Feature components / State management
+- data-services - Data API Services
+- material - angular material module and configuration
+- core-ui - core UI components / stateless presentation / layout components / pipes / services / feature module
+- user-registration - user registration ui feature module
+
+![Dependency Graph](docs/dependency_correct.PNG)
 
 #### Miscellaneous
 

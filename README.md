@@ -10,7 +10,7 @@ This is a reference implementation for building enterprise applications using An
 
 #### Technologies Used
 
-- Angular 6+
+- Angular 7
 - Nx Extensions
 - Angular Material
 - NGRX for State Management

@@ -15,6 +15,7 @@ import { SelectorPanelComponent } from './selector-panel/selector-panel.componen
 import { BreedsPipe } from './selector-panel/breeds-transform.pipe';
 import { ImagePreloaderDirective } from './common/image-preloader.directive';
 import { HeroImageComponent } from './hero-image/hero-image.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
     SelectorPanelComponent,
     BreedsPipe,
     ImagePreloaderDirective,
-    HeroImageComponent
+    HeroImageComponent,
+    FooterComponent
   ],
   exports: [
     ToolbarComponent,
@@ -48,7 +50,8 @@ import { HeroImageComponent } from './hero-image/hero-image.component';
     SelectorPanelComponent,
     BreedsPipe,
     ImagePreloaderDirective,
-    HeroImageComponent
+    HeroImageComponent,
+    FooterComponent
   ],
   providers: [DogService]
 })

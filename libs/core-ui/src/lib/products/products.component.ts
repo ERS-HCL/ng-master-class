@@ -67,7 +67,7 @@ export class ProductsComponent implements OnInit {
         item => item.productName === this.selectedBreed
       ).length > 0;
     // console.log(result, this.breedAvailiabilty);
-    return result && this.breedAvailiabilty;
+    return this.selectedBreed.length > 0  && result && this.breedAvailiabilty;
   }
 
   public onBuy() {

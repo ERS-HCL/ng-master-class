@@ -1,5 +1,12 @@
-<hcl-ers-navigation></hcl-ers-navigation>
-<main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
-    <hcl-ers-snack-bar></hcl-ers-snack-bar>
-    <router-outlet #o="outlet"></router-outlet>
-</main>
+<div class="container">
+    <header>
+        <hcl-ers-navigation></hcl-ers-navigation>
+    </header>
+    <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+        <hcl-ers-snack-bar></hcl-ers-snack-bar>
+        <router-outlet #o="outlet"></router-outlet>
+    </main>
+    <footer>
+        <hcl-ers-footer></hcl-ers-footer>
+    </footer>
+</div>

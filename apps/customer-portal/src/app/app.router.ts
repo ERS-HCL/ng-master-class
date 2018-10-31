@@ -9,12 +9,12 @@ import { CartGuard } from './_guards/cart.guard';
 import { UserGuard } from './_guards/user.guard';
 
 export const router: Routes = [
-  { path: '', redirectTo: 'products', pathMatch: 'full' },
-  { path: 'about', component: AboutComponent },
   {
-    path: 'products',
+    path: '',
     component: ProductsPageComponent
   },
+  { path: 'about', component: AboutComponent },
+
   { path: 'login', component: AppLoginComponent },
   {
     path: 'user-registration',

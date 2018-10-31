@@ -23,7 +23,7 @@ export class NavigationComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   navElements: Array<NavElement> = [
     { label: 'About', route: 'about' },
-    { label: 'Products', route: 'products' }
+    { label: 'Puppies', route: '/' }
   ];
 
   isLoggedIn() {

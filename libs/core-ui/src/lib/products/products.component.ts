@@ -52,12 +52,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit() {
     this.breakpoint =
-      window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
+      window.innerWidth <= 430 ? 1 : window.innerWidth <= 770 ? 2 : 4;
   }
 
   onResize(event) {
     this.breakpoint =
-      window.innerWidth <= 420 ? 1 : window.innerWidth <= 740 ? 2 : 4;
+      window.innerWidth <= 430 ? 1 : window.innerWidth <= 770 ? 2 : 4;
   }
 
   public isItemInCart(): boolean {
@@ -67,7 +67,7 @@ export class ProductsComponent implements OnInit {
         item => item.productName === this.selectedBreed
       ).length > 0;
     // console.log(result, this.breedAvailiabilty);
-    return this.selectedBreed.length > 0  && result && this.breedAvailiabilty;
+    return this.selectedBreed.length > 0 && result && this.breedAvailiabilty;
   }
 
   public onBuy() {

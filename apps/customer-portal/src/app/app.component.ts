@@ -12,11 +12,16 @@ import { fadeAnimation } from './animations';
 })
 export class AppComponent implements OnInit {
   title = 'customer-portal';
-
+  myvalue: string;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
+    this.myvalue = 'This is a test';
     this.store.dispatch(new LoadApp());
     this.store.dispatch(new CreateCart());
+  }
+
+  public onAction($event) {
+    console.log($event.detail);
   }
 }

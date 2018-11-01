@@ -1,19 +1,28 @@
-import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'hcl-ers-button',
   template: `
   <button (click)="handleClick()">{{label}}</button>
   `,
-  styles: [`
-  button {
-    border: solid 3px;
-    padding: 8px 10px;
-    background: #bada55;
-    font-size: 20px;
-  }
-`],
-encapsulation: ViewEncapsulation.Native
+  styles: [
+    `
+      button {
+        border: solid 3px;
+        padding: 8px 10px;
+        background: #bada55;
+        font-size: 20px;
+      }
+    `
+  ]
+  // encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
   @Input() label = 'default label';
@@ -24,10 +33,8 @@ export class ButtonComponent implements OnInit {
     this.clicksCt++;
     this.action.emit(this.clicksCt);
   }
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

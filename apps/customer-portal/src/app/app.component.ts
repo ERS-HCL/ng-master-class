@@ -19,6 +19,14 @@ export class AppComponent implements OnInit {
     this.myvalue = 'This is a test';
     this.store.dispatch(new LoadApp());
     this.store.dispatch(new CreateCart());
+    const mybutton = document.createElement('hcl-ers-button');
+    mybutton.setAttribute('label', this.myvalue);
+    mybutton.addEventListener('action', ($event: any) => {
+      console.log($event.detail);
+    });
+
+    const content = document.getElementById('content');
+    content.appendChild(mybutton);
   }
 
   public onAction($event) {

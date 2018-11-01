@@ -21,8 +21,8 @@ import {
         font-size: 20px;
       }
     `
-  ]
-  // encapsulation: ViewEncapsulation.Native
+  ],
+  encapsulation: ViewEncapsulation.Native
 })
 export class ButtonComponent implements OnInit {
   @Input() label = 'default label';

@@ -1,7 +1,8 @@
 <div class="container">
     <header>
         <hcl-ers-navigation></hcl-ers-navigation>
-        <hcl-ers-button label="Initial Value" (action)="onAction($event)"></hcl-ers-button>
+        <!-- <hcl-ers-button label="Initial Value" (action)="onAction($event)"></hcl-ers-button> -->
+        <div class="row" id="content"></div>
     </header>
     <main [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
         <hcl-ers-snack-bar></hcl-ers-snack-bar>

@@ -24,7 +24,12 @@
       "tags": []
     },
     "data-services": {
-      "tags": ["backend"]
+      "tags": [
+        "backend"
+      ]
+    },
+    "core-elements": {
+      "tags": []
     }
   }
 }

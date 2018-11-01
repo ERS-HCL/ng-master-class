@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { NxModule } from '@nrwl/nx';
@@ -35,6 +35,7 @@ import { FakeBackendInterceptorService } from './_services/fake-backend';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { CartGuard } from './_guards/cart.guard';
 import { UserGuard } from './_guards/user.guard';
+import { CoreElementsModule } from '@hcl-ers/core-elements';
 
 const fakeBackendProvider = {
   // use fake backend in place of Http service for backend-less development
@@ -51,12 +52,14 @@ const fakeBackendProvider = {
     NavigationComponent,
     CheckOutPageComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CoreUiModule,
     RouterModule,
     DataServicesModule,
+    CoreElementsModule,
     NxModule.forRoot(),
     routes,
     StoreModule.forRoot(

@@ -85,6 +85,14 @@ ng g lib core-ui --routing --lazy --parent-module=apps/customer-portal/src/app/a
 ng generate component login --project=core-ui -m --export
 ```
 
+Add custom elements
+
+```
+ng g lib core-elements --publishable
+ng add @angular/elements
+ng g c button --inline-style --inline-template -vNative --project core-elements -m --export
+```
+
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
 
 Copying assets from [multiple projects](https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md#project-assets) and [this](https://github.com/nrwl/nx/issues/88)

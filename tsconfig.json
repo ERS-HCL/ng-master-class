@@ -7,15 +7,34 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "target": "es5",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "baseUrl": ".",
     "paths": {
-      "@hcl-ers/user-registration": ["libs/user-registration/src/index.ts"],
-      "@hcl-ers/material": ["libs/material/src/index.ts"],
-      "@hcl-ers/core-ui": ["libs/core-ui/src/index.ts"],
-      "@hcl-ers/data-services": ["libs/data-services/src/index.ts"]
+      "@hcl-ers/user-registration": [
+        "libs/user-registration/src/index.ts"
+      ],
+      "@hcl-ers/material": [
+        "libs/material/src/index.ts"
+      ],
+      "@hcl-ers/core-ui": [
+        "libs/core-ui/src/index.ts"
+      ],
+      "@hcl-ers/data-services": [
+        "libs/data-services/src/index.ts"
+      ],
+      "@hcl-ers/core-elements": [
+        "libs/core-elements/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

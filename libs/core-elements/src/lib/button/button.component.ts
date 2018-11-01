@@ -22,7 +22,7 @@ import {
       }
     `
   ]
-  // encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.Native
 })
 export class ButtonComponent implements OnInit {
   @Input() label = 'default label';

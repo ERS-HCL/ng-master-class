@@ -1,7 +1,10 @@
 .container {
   min-height: 100%;
+  flex: 1 0 auto;
+
 }
 
 footer {
-  min-height: 50px;
+  flex-shrink: 0;
+
 }

@@ -14,7 +14,7 @@ This is a reference implementation for building enterprise applications using An
 - Nx Extensions
 - Angular Material
 - NGRX for State Management
-- CEO Dogs APIs for dog images and lists
+- Dog CEO APIs for dog images and lists
 - NGX Logging for uniform logging / server side logging
 
 #### Patterns
@@ -25,6 +25,7 @@ This is a reference implementation for building enterprise applications using An
 - Error Interceptor across the application for better UX - cross cutting concern
 - JWT Interceptor across the application - cross cutting concern
 - NGRX / Redux Pattern - Actions, Action Types, Reducers , App State , Effects , Selectors
+- Dynamic Angular Element implementation - for user comments (on clicking on info button)
 - Image Preloader (UX)
 - API / Service Classes
 - Global Alert / Snackbar Service

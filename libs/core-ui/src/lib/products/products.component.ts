@@ -47,6 +47,7 @@ export class ProductsComponent implements OnInit {
   @Input() cart: ShoppingCart;
   @Input() breedAvailiabilty: boolean;
   @Output() OnBuy = new EventEmitter();
+  @Output() OnInfo = new EventEmitter();
   @Output() OnCheckout = new EventEmitter();
   constructor() {}
 
@@ -76,5 +77,9 @@ export class ProductsComponent implements OnInit {
 
   public onCheckOut() {
     this.OnCheckout.emit();
+  }
+
+  public onInfo() {
+    this.OnInfo.emit();
   }
 }

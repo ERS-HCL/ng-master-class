@@ -1,17 +1,18 @@
 import { NgModule, Injector } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { createCustomElement } from '@angular/elements';
-import { ButtonComponent } from './button/button.component';
+import { CommentsComponent } from './comments/comments.component';
+import { MaterialModule } from '@hcl-ers/material';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [ButtonComponent],
-  entryComponents: [ButtonComponent]
+  imports: [CommonModule, MaterialModule],
+  declarations: [CommentsComponent],
+  entryComponents: [CommentsComponent]
 })
 export class CoreElementsModule {
   constructor(private injector: Injector) {
-    const customButton = createCustomElement(ButtonComponent, { injector });
-    customElements.define('hcl-ers-button', customButton);
+    const customButton = createCustomElement(CommentsComponent, { injector });
+    customElements.define('hcl-ers-comments', customButton);
   }
 
   ngDoBootstrap() {}

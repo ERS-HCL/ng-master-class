@@ -1,7 +1,8 @@
 <hcl-ers-hero-image></hcl-ers-hero-image>
 <hcl-ers-selector-panel [breeds]="breeds| async" (breedSelected)="onBreedSelection($event)" (hasSubBreed)="hasSubBreed($event)"
     (subBreedSelected)="onSubBreedSelection($event)" [breedImages]="breedImages | async"></hcl-ers-selector-panel>
-<hcl-ers-products (OnBuy)="onBuy($event)" (OnCheckout)="onCheckout()" [breedImagesLoaded]="breedImagesLoaded | async"
+<hcl-ers-products (OnInfo)="onInfo()" (OnBuy)="onBuy($event)" (OnCheckout)="onCheckout()" [breedImagesLoaded]="breedImagesLoaded | async"
     [subBreedImagesLoaded]="subBreedImagesLoaded | async" [breedImages]="breedImages | async" [subBreedImages]="subBreedImages | async"
     [hasSubBreed]="isSubBreed | async" [breedUnitPrice]="breedUnitPrice | async" [breedAvailiabilty]="breedAvailiabilty | async"
     [cartItemCount]="cartItemCount | async" [cart]="cart | async" [selectedBreed]="selectedBreed"></hcl-ers-products>
+    <div class="row" id="content"></div>

@@ -32,7 +32,8 @@ export class ProductsPageComponent implements OnInit {
   selectedBreed: string;
   selectedSubBreed: string;
   breedParams: BreedParams;
-  constructor(private router: Router, private store: Store<AppState>) {}
+  infoDisplayed: boolean;
+  constructor(private router: Router, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.breeds = this.store.pipe(select(appQuery.getBreeds));
@@ -51,6 +52,7 @@ export class ProductsPageComponent implements OnInit {
       select(appQuery.getSubBreedImagesLoaded)
     );
     this.isSubBreed = this.store.pipe(select(appQuery.getHasSubBreed));
+    this.infoDisplayed = false;
   }
 
   onBuy($event): void {
@@ -65,12 +67,36 @@ export class ProductsPageComponent implements OnInit {
     );
   }
 
+  onInfo(): void {
+    const content = document.getElementById('content');
+    this.clearInfoContent(content);
+
+    if (!this.infoDisplayed) {
+      console.log('Info clicked');
+      this.infoDisplayed = true;
+      console.log('display info');
+      const mybutton = document.createElement('hcl-ers-comments');
+      mybutton.setAttribute('label', this.selectedBreed);
+      mybutton.addEventListener('action', ($event: any) => {
+        console.log($event.detail);
+      });
+      content.appendChild(mybutton);
+    } else {
+      this.infoDisplayed = !this.infoDisplayed;
+    }
+
+  }
+
+
   onCheckout(): void {
     this.router.navigate(['user-registration']);
   }
 
   onBreedSelection($event) {
     this.selectedBreed = $event;
+    this.infoDisplayed = false;
+    const content = document.getElementById('content');
+    this.clearInfoContent(content);
     this.store.dispatch(new LoadBreedImages($event));
   }
 
@@ -91,5 +117,12 @@ export class ProductsPageComponent implements OnInit {
       //      console.log('Dispatching Sub Breeds');
       this.store.dispatch(new LoadSubBreedImages(this.breedParams));
     }
+  }
+
+  private clearInfoContent(content: any) {
+      // clear old content
+      while (content.firstChild !== null) {
+        content.removeChild(content.firstChild);
+      }
   }
 }

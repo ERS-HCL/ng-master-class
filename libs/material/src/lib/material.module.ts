@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -24,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatMenuModule,
     MatGridListModule,
+    MatListModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
@@ -46,6 +48,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatListModule,
     MatStepperModule,
     MatTableModule,
     MatChipsModule,
@@ -56,4 +59,4 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule
   ]
 })
-export class MaterialModule {}
+export class MaterialModule { }

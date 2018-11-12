@@ -68,6 +68,7 @@ This is a reference implementation for building enterprise applications using An
 - material - angular material module and configuration
 - core-ui - core UI components / stateless presentation / layout components / pipes / services / feature module
 - user-registration - user registration ui feature module
+- core-elements - core UI custom elements module
 
 ![Dependency Graph](docs/dependency_correct.PNG)
 

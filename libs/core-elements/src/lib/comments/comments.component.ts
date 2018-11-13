@@ -26,7 +26,7 @@ import { trigger, transition, style, animate, query, stagger, animateChild } fro
     ])
   ],
   template: `
-  <mat-card>
+  <mat-card class="cards">
     <mat-card-header>
       <mat-card-title>Breed <b> {{label | titlecase}} </b></mat-card-title>
       <mat-card-subtitle>Comments</mat-card-subtitle>
@@ -50,11 +50,8 @@ import { trigger, transition, style, animate, query, stagger, animateChild } fro
   `,
   styles: [
     `
-      button {
-        border: solid 3px;
-        padding: 8px 10px;
-        background: #bada55;
-        font-size: 20px;
+      .cards {
+        margin: 10px;
       }
     `
   ]

@@ -34,7 +34,7 @@ import { trigger, transition, style, animate, query, stagger, animateChild } fro
     <mat-list [@list] role="list">
       <ng-template  let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
         <mat-list-item [@items] role="listitem">
-          <img matListAvatar src="http://lorempixel.com/40/40/people/{{i}}" />
+          <img matListAvatar src="/assets/avatar{{i}}.jpg" />
           <h3 matLine class="cursor-pointer"> {{getName(i)}} </h3>
           <p matLine>
               <span class="text-wrap">
@@ -46,7 +46,6 @@ import { trigger, transition, style, animate, query, stagger, animateChild } fro
       </ng-template>
     </mat-list>
   </mat-card>
-  
   `,
   styles: [
     `

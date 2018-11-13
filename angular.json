@@ -37,6 +37,11 @@
                 "glob": "**/*",
                 "input": "libs/core-ui/src/assets/",
                 "output": "/assets/"
+              },
+              {
+                "glob": "**/*",
+                "input": "libs/core-elements/src/assets/",
+                "output": "/assets/"
               }
             ],
             "styles": [

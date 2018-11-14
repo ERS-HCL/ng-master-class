@@ -95,6 +95,13 @@ ng add @angular/elements
 ng g c button --inline-style --inline-template -vNative --project core-elements -m --export
 ```
 
+Add pwa support
+- At the current moment there are issues with the latest version of the [pwa library](https://github.com/angular/angular-cli/issues/12914)
+- Using the stable version of the same.
+```
+ng add @angular/pwa@0.8.7 --project customer-portal
+```
+
 Nx is designed to help you create and build enterprise grade Angular applications. It provides an opinionated approach to application project structure and patterns.
 
 Copying assets from [multiple projects](https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/asset-configuration.md#project-assets) and [this](https://github.com/nrwl/nx/issues/88)

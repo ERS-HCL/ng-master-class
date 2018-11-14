@@ -36,6 +36,7 @@ import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { CartGuard } from './_guards/cart.guard';
 import { UserGuard } from './_guards/user.guard';
 import { CoreElementsModule } from '@hcl-ers/core-elements';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const fakeBackendProvider = {
   // use fake backend in place of Http service for backend-less development
@@ -74,7 +75,8 @@ const fakeBackendProvider = {
     StoreRouterConnectingModule,
     // Server side logging
     // [LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR}), ...],
-    LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG })
+    LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     DogService,

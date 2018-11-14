@@ -16,6 +16,7 @@ This is a reference implementation for building enterprise applications using An
 - NGRX for State Management
 - Dog CEO APIs for dog images and lists
 - NGX Logging for uniform logging / server side logging
+- PWA
 
 #### Patterns
 

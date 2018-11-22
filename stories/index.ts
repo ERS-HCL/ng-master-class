@@ -8,10 +8,20 @@ storiesOf('Core UI', module)
       imports: [CoreUiModule,BrowserAnimationsModule]
     })
   )
-  .add('Login Component', () => ({
+  .add('Login Component with loading off', () => ({
     template: `<hcl-ers-login [(loading)]="loading" (OnLogin)="onLogin($event)"></hcl-ers-login>`,
     props: {
       loading: false,
+      onLogin: event => {
+        console.log('some bindings work');
+        console.log(event);
+      },
+    },
+  }))
+  .add('Login Component with loading on', () => ({
+    template: `<hcl-ers-login [(loading)]="loading" (OnLogin)="onLogin($event)"></hcl-ers-login>`,
+    props: {
+      loading: true,
       onLogin: event => {
         console.log('some bindings work');
         console.log(event);

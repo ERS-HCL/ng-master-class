@@ -7,17 +7,17 @@
     </mat-card-header>
     <mat-card-content>
       <form (ngSubmit)="login()" #loginForm="ngForm" class="example-container">
-        <mat-form-field>
-          <input matInput placeholder="Input" required [(ngModel)]="loginModel.username" name="username">
+        <mat-form-field >
+          <input matInput placeholder="Input" required [(ngModel)]="loginModel.username" name="username" [disabled]="loading">
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field >
           <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required [(ngModel)]="loginModel.password"
-            name="password">
+            name="password" [disabled]="loading">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
 
-        <button mat-raised-button color="accent" type="submit" [disabled]="!loginForm.form.valid">
+        <button mat-raised-button color="accent" type="submit" [disabled]="!loginForm.form.valid && !loading || loading">
           LOGIN
         </button>
 

@@ -9,7 +9,10 @@ describe('FakeBackendInterceptorService', () => {
     });
   });
 
-  it('should be created', inject([FakeBackendInterceptorService], (service: FakeBackendInterceptorService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [FakeBackendInterceptorService],
+    (service: FakeBackendInterceptorService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

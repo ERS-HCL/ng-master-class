@@ -9,7 +9,10 @@ describe('ErrorInterceptorService', () => {
     });
   });
 
-  it('should be created', inject([ErrorInterceptorService], (service: ErrorInterceptorService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [ErrorInterceptorService],
+    (service: ErrorInterceptorService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

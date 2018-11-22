@@ -33,7 +33,7 @@ export class ProductsPageComponent implements OnInit {
   selectedSubBreed: string;
   breedParams: BreedParams;
   infoDisplayed: boolean;
-  constructor(private router: Router, private store: Store<AppState>) { }
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit() {
     this.breeds = this.store.pipe(select(appQuery.getBreeds));
@@ -84,9 +84,7 @@ export class ProductsPageComponent implements OnInit {
     } else {
       this.infoDisplayed = !this.infoDisplayed;
     }
-
   }
-
 
   onCheckout(): void {
     this.router.navigate(['user-registration']);
@@ -120,9 +118,9 @@ export class ProductsPageComponent implements OnInit {
   }
 
   private clearInfoContent(content: any) {
-      // clear old content
-      while (content.firstChild !== null) {
-        content.removeChild(content.firstChild);
-      }
+    // clear old content
+    while (content.firstChild !== null) {
+      content.removeChild(content.firstChild);
+    }
   }
 }

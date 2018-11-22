@@ -59,4 +59,4 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {}

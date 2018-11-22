@@ -11,7 +11,7 @@ describe('App Reducer', () => {
       dogList.map(dog => {
         temp.set(dog, []);
       });
-      return  temp ;
+      return temp;
     };
   });
 

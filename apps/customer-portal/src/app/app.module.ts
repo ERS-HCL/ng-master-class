@@ -76,7 +76,9 @@ const fakeBackendProvider = {
     // Server side logging
     // [LoggerModule.forRoot({serverLoggingUrl: '/api/logs', level: NgxLoggerLevel.DEBUG, serverLogLevel: NgxLoggerLevel.ERROR}), ...],
     LoggerModule.forRoot({ level: NgxLoggerLevel.DEBUG }),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [
     DogService,

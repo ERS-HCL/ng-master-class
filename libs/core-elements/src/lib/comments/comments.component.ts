@@ -7,22 +7,30 @@ import {
   EventEmitter
 } from '@angular/core';
 import * as faker from 'faker';
-import { trigger, transition, style, animate, query, stagger, animateChild } from '@angular/animations';
+import {
+  trigger,
+  transition,
+  style,
+  animate,
+  query,
+  stagger,
+  animateChild
+} from '@angular/animations';
 
 @Component({
   selector: 'hcl-ers-comments',
   animations: [
     trigger('items', [
       transition(':enter', [
-        style({ transform: 'scale(0.5)', opacity: 0 }),  // initial
-        animate('500ms cubic-bezier(.8, -0.6, 0.2, 1.5)', 
-          style({ transform: 'scale(1)', opacity: 1 }))  // final
+        style({ transform: 'scale(0.5)', opacity: 0 }), // initial
+        animate(
+          '500ms cubic-bezier(.8, -0.6, 0.2, 1.5)',
+          style({ transform: 'scale(1)', opacity: 1 })
+        ) // final
       ])
     ]),
     trigger('list', [
-      transition(':enter', [
-        query('@items', stagger(300, animateChild()))
-      ]),
+      transition(':enter', [query('@items', stagger(300, animateChild()))])
     ])
   ],
   template: `
@@ -66,18 +74,17 @@ export class CommentsComponent implements OnInit {
     this.clicksCt++;
     this.action.emit(this.clicksCt);
   }
-  
 
   constructor() {}
 
   ngOnInit() {
-    for(let i=0;i<10;i++) {
+    for (let i = 0; i < 10; i++) {
       this.names.push(this.getRandomName());
       this.comments.push(this.getRandomComment());
     }
   }
 
-  public getName(i: number){
+  public getName(i: number) {
     return this.names[i];
   }
 
@@ -86,10 +93,10 @@ export class CommentsComponent implements OnInit {
   }
 
   private getRandomName() {
-    return faker.fake("{{name.suffix}} {{name.lastName}}, {{name.firstName}}")
+    return faker.fake('{{name.suffix}} {{name.lastName}}, {{name.firstName}}');
   }
 
   private getRandomComment() {
-    return faker.fake("{{lorem.paragraph}}");
+    return faker.fake('{{lorem.paragraph}}');
   }
 }

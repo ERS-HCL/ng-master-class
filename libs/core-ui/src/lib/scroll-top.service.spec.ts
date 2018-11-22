@@ -9,7 +9,10 @@ describe('ScrollTopService', () => {
     });
   });
 
-  it('should be created', inject([ScrollTopService], (service: ScrollTopService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should be created', inject(
+    [ScrollTopService],
+    (service: ScrollTopService) => {
+      expect(service).toBeTruthy();
+    }
+  ));
 });

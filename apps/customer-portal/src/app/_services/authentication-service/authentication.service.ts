@@ -16,7 +16,7 @@ export class AuthenticationService {
       return false;
     }
   }
-  
+
   login(username: string, password: string) {
     return this.http
       .post<any>(`${environment.apiUrl}/users/authenticate`, {

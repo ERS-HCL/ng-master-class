@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     this.myvalue = 'This is a test';
     this.store.dispatch(new LoadApp());
     this.store.dispatch(new CreateCart());
-
   }
 
   public onAction($event) {

@@ -38,7 +38,7 @@ import { UserGuard } from './_guards/user.guard';
 import { CoreElementsModule } from '@hcl-ers/core-elements';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-const fakeBackendProvider = {
+export const fakeBackendProvider = {
   // use fake backend in place of Http service for backend-less development
   provide: HTTP_INTERCEPTORS,
   useClass: FakeBackendInterceptorService,

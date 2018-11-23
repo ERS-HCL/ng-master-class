@@ -1,5 +1,7 @@
 # NgMasterClass
 
+ [![Dependency Status](https://david-dm.org/ERS-HCL/ng-master-class.svg)](https://david-dm.org/ERS-HCL/ng-master-class)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
 ## Objective

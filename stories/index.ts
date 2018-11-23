@@ -1,30 +1,18 @@
-import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { CoreUiModule } from '@hcl-ers/core-ui';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { storiesOf } from '@storybook/angular';
 
-storiesOf('Core UI', module)
-.addDecorator(
-    moduleMetadata({
-      imports: [CoreUiModule,BrowserAnimationsModule]
-    })
-  )
-  .add('Login Component with loading off', () => ({
-    template: `<hcl-ers-login [(loading)]="loading" (OnLogin)="onLogin($event)"></hcl-ers-login>`,
-    props: {
-      loading: false,
-      onLogin: event => {
-        console.log('some bindings work');
-        console.log(event);
-      },
-    },
-  }))
-  .add('Login Component with loading on', () => ({
-    template: `<hcl-ers-login [(loading)]="loading" (OnLogin)="onLogin($event)"></hcl-ers-login>`,
-    props: {
-      loading: true,
-      onLogin: event => {
-        console.log('some bindings work');
-        console.log(event);
-      },
-    },
+
+storiesOf('Chapter 1: Overview', module)
+.add('Introduction', () => ({
+    template: `<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+.base {
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+</style>
+    <div class="base">
+      <h1>Customer Portal</h1>
+      <p>This is a living style guide</p>
+    </div>
+    `,
   }));
